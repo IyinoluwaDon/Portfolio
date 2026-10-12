@@ -168,7 +168,7 @@ export function ContactPage() {
   const rows: { label: string; value: string; href: string; external: boolean }[] = [
     { label: 'GitHub', value: 'IyinoluwaDon', href: links.github, external: true },
     { label: 'LinkedIn', value: 'Iyinoluwa Don-Taiwo', href: links.linkedin, external: true },
-    { label: 'X', value: '@IyinoluwaDon', href: links.x, external: true },
+    { label: 'X', value: '@Iyinoluwa_Don', href: links.x, external: true },
     { label: 'Resume', value: 'View resume', href: links.resume, external: true },
   ]
 
