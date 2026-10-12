@@ -2,3 +2,7 @@ node_modules/
 .next/
 npm-debug.log*
 .aider*
+
+# Redesign additions
+next-env.d.ts
+*.tsbuildinfo

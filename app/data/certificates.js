@@ -2,6 +2,13 @@
 // Cards without a URL remain visible, but do not pretend to be a working link.
 export const certificates = [
   {
+    name: 'Operationalizing Machine Learning and Generative AI Solutions (AI-300)',
+    issuer: 'Microsoft',
+    category: 'Cloud & AI',
+    // Date left out on purpose: add it here once you confirm it on the certificate.
+    url: 'https://drive.google.com/file/d/1aeOaQtm6oHWd1CDkiIg7DCYEBBptujiM/view?usp=drive_link',
+  },
+  {
     name: 'Azure AI Fundamentals (AI-900)',
     issuer: 'Microsoft',
     category: 'Cloud & AI',

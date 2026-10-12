@@ -1,0 +1,399 @@
+/* ---------- About ---------- */
+.aboutGrid {
+  display: grid;
+  gap: var(--space-5);
+}
+
+@media (min-width: 900px) {
+  .aboutGrid {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: var(--space-8);
+  }
+}
+
+.statement {
+  display: grid;
+  align-content: space-between;
+  gap: var(--space-8);
+  height: 100%;
+  border-radius: var(--radius-surface);
+  padding: clamp(1.75rem, 4vw, 3rem);
+  background: var(--surface-muted);
+}
+
+.statementTitle {
+  font-size: clamp(1.75rem, 1.2rem + 1.8vw, 2.5rem);
+}
+
+.statementCopy {
+  margin: 0;
+  max-width: 34rem;
+  color: var(--text-secondary);
+  font-size: var(--text-lg);
+  line-height: 1.65;
+}
+
+.principles {
+  height: 100%;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-surface);
+  padding: clamp(1.75rem, 4vw, 3rem);
+  background: var(--surface);
+}
+
+.subhead {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: var(--tracking-display);
+}
+
+.principleList {
+  margin: var(--space-6) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.principle {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  gap: var(--space-3);
+  border-top: 1px solid var(--border);
+  padding-block: var(--space-5);
+}
+
+.principleTitle {
+  margin: 0;
+  font-size: var(--text-base);
+  font-weight: 500;
+}
+
+.principleCopy {
+  margin: var(--space-2) 0 0;
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  line-height: 1.65;
+}
+
+/* ---------- Skills ---------- */
+.cell {
+  display: flex;
+}
+
+.cell > * {
+  flex: 1;
+}
+
+.skill {
+  padding: var(--space-8);
+}
+
+@media (max-width: 640px) {
+  .skill {
+    padding: var(--space-5);
+  }
+}
+
+.skillTitle {
+  margin-top: var(--space-10);
+  font-size: var(--text-2xl);
+}
+
+/* ---------- Work ---------- */
+.points {
+  display: grid;
+  gap: var(--space-8);
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+@media (min-width: 800px) {
+  .points {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-8);
+  }
+}
+
+.point {
+  border-top: 1px solid var(--border);
+  padding-top: var(--space-5);
+}
+
+.pointTitle {
+  margin: var(--space-6) 0 0;
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: var(--tracking-display);
+}
+
+.pointCopy {
+  margin: var(--space-2) 0 0;
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  line-height: 1.65;
+}
+
+/* ---------- Experience ---------- */
+.timeline {
+  display: grid;
+  gap: var(--space-12);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.entry {
+  display: grid;
+  grid-template-columns: 1.25rem minmax(0, 1fr);
+  grid-template-areas:
+    'marker period'
+    'marker body';
+  column-gap: var(--space-4);
+  row-gap: var(--space-2);
+}
+
+@media (min-width: 800px) {
+  .entry {
+    grid-template-columns: 11rem 1.25rem minmax(0, 1fr);
+    grid-template-areas: 'period marker body';
+    column-gap: var(--space-8);
+  }
+}
+
+.period {
+  grid-area: period;
+  margin: 0;
+  padding-top: 0.4rem;
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  font-variant-numeric: tabular-nums;
+}
+
+.marker {
+  position: relative;
+  grid-area: marker;
+}
+
+/* The rail runs through every entry; the last one ends at its dot. */
+.marker::before {
+  content: '';
+  position: absolute;
+  top: 0.9rem;
+  bottom: calc(-1 * var(--space-12) - 0.4rem);
+  left: 50%;
+  width: 1px;
+  background: var(--border);
+}
+
+.entry:last-child .marker::before {
+  display: none;
+}
+
+.marker::after {
+  content: '';
+  position: absolute;
+  top: 0.55rem;
+  left: 50%;
+  width: 0.625rem;
+  height: 0.625rem;
+  translate: -50% 0;
+  border-radius: 50%;
+  background: var(--accent);
+  /* A ring in the page color separates the dot from the rail; it is not a glow. */
+  box-shadow: 0 0 0 4px var(--background);
+}
+
+.entryBody {
+  grid-area: body;
+  min-width: 0;
+}
+
+.role {
+  font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.25rem);
+}
+
+.org {
+  margin: var(--space-2) 0 0;
+  color: var(--accent-strong);
+  font-size: var(--text-base);
+  font-weight: 500;
+}
+
+.where {
+  margin: var(--space-1) 0 0;
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+}
+
+.highlights {
+  display: grid;
+  gap: var(--space-3);
+  margin: var(--space-5) 0 0;
+  padding-left: 1.1rem;
+  max-width: 44rem;
+  color: var(--text-secondary);
+  font-size: var(--text-base);
+  line-height: 1.65;
+}
+
+.highlights li::marker {
+  color: var(--text-muted);
+}
+
+/* ---------- Credentials ---------- */
+.certGrid {
+  margin-top: var(--space-6);
+}
+
+.cert {
+  align-items: flex-start;
+  min-height: 12.5rem;
+}
+
+.certTitle {
+  margin-top: var(--space-5);
+  font-size: var(--text-lg);
+}
+
+.certDate {
+  margin: var(--space-2) 0 0;
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}
+
+/* ---------- Contact ---------- */
+.contactGrid {
+  display: grid;
+  gap: var(--space-5);
+}
+
+@media (min-width: 900px) {
+  .contactGrid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: var(--space-8);
+    align-items: stretch;
+  }
+}
+
+.contactPanel {
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  gap: var(--space-5);
+  height: 100%;
+  border-radius: var(--radius-surface);
+  padding: clamp(1.75rem, 5vw, 3.5rem);
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.contactTitle {
+  max-width: 14ch;
+  color: var(--background);
+  font-size: clamp(2rem, 1.2rem + 3.2vw, 3.25rem);
+}
+
+.contactCopy {
+  margin: 0;
+  max-width: 28rem;
+  color: color-mix(in oklab, var(--background) 72%, transparent);
+  font-size: var(--text-lg);
+  line-height: 1.6;
+}
+
+.contactActions {
+  margin-top: var(--space-4);
+}
+
+.rows {
+  display: grid;
+  grid-auto-rows: 1fr;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-surface);
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid var(--border);
+  padding-right: var(--space-3);
+}
+
+.row:first-child {
+  border-top: 0;
+}
+
+.rowLink {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+  grid-template-columns: 1.25rem 5.5rem minmax(0, 1fr);
+  align-items: center;
+  gap: var(--space-3);
+  min-height: 4.25rem;
+  padding: var(--space-3) var(--space-3) var(--space-3) var(--space-6);
+  color: var(--foreground);
+  font-size: var(--text-base);
+  text-decoration: none;
+  transition: background-color var(--duration-fast) var(--ease-standard);
+}
+
+.rowLink svg {
+  color: var(--text-muted);
+  transition:
+    transform var(--duration-fast) var(--ease-standard),
+    color var(--duration-fast) var(--ease-standard);
+}
+
+.rowLabel {
+  font-weight: 500;
+}
+
+.rowValue {
+  overflow: hidden;
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .rowLink:hover {
+    background: var(--surface-muted);
+  }
+
+  .rowLink:hover svg {
+    color: var(--accent-strong);
+    transform: translate(2px, -2px);
+  }
+}
+
+@media (max-width: 520px) {
+  .rowLink {
+    grid-template-columns: 1.25rem minmax(0, 1fr);
+    padding-left: var(--space-4);
+  }
+
+  .rowValue {
+    grid-column: 2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rowLink,
+  .rowLink svg {
+    transition: none;
+  }
+
+  .rowLink:hover svg {
+    transform: none;
+  }
+}
