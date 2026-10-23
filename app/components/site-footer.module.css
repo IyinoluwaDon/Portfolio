@@ -1,10 +1,74 @@
-/* Line the footer content up with the page container (1200px) instead of the full window width. */
-footer.wide {
-  --footer-pad: max(var(--space-6), calc((100% - 1200px) / 2 + var(--space-6)));
+.footer {
+  margin-top: clamp(4rem, 8vw, 7rem);
+  border-top: 1px solid var(--border);
 }
 
-@media (max-width: 640px) {
-  footer.wide {
-    --footer-pad: var(--space-4);
+.inner {
+  display: grid;
+  width: min(100% - 3rem, 1200px);
+  grid-template-columns: minmax(12rem, .8fr) minmax(0, 1.5fr) auto;
+  align-items: start;
+  gap: 2rem;
+  margin-inline: auto;
+  padding-block: 2rem 2.5rem;
+}
+
+.identity p,
+.copyright {
+  margin: .45rem 0 0;
+  color: var(--text-muted);
+  font-size: .8125rem;
+  line-height: 1.5;
+}
+
+.name {
+  color: var(--foreground);
+  font-size: .9rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .7rem 1.25rem;
+}
+
+.links a {
+  color: var(--text-secondary);
+  font-size: .8125rem;
+  text-decoration: none;
+}
+
+.links a:hover,
+.name:hover {
+  color: var(--accent-strong);
+}
+
+.copyright {
+  margin: 0;
+  white-space: nowrap;
+}
+
+@media (max-width: 850px) {
+  .inner {
+    width: min(100% - 2rem, 1200px);
+    grid-template-columns: 1fr auto;
+  }
+
+  .links {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .copyright {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
+
+@media (max-width: 390px) {
+  .inner {
+    width: min(100% - 1.25rem, 1200px);
   }
 }

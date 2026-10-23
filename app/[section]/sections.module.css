@@ -16,7 +16,6 @@
   align-content: space-between;
   gap: var(--space-8);
   height: 100%;
-  border-radius: var(--radius-surface);
   padding: clamp(1.75rem, 4vw, 3rem);
   background: var(--surface-muted);
 }
@@ -36,7 +35,6 @@
 .principles {
   height: 100%;
   border: 1px solid var(--border);
-  border-radius: var(--radius-surface);
   padding: clamp(1.75rem, 4vw, 3rem);
   background: var(--surface);
 }
@@ -57,8 +55,6 @@
 
 .principle {
   display: grid;
-  grid-template-columns: 2.5rem minmax(0, 1fr);
-  gap: var(--space-3);
   border-top: 1px solid var(--border);
   padding-block: var(--space-5);
 }
@@ -98,6 +94,14 @@
 .skillTitle {
   margin-top: var(--space-10);
   font-size: var(--text-2xl);
+}
+
+.skillItems {
+  margin: auto 0 0;
+  padding-top: var(--space-5);
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+  line-height: 1.7;
 }
 
 /* ---------- Work ---------- */
@@ -200,8 +204,7 @@
   translate: -50% 0;
   border-radius: 50%;
   background: var(--accent);
-  /* A ring in the page color separates the dot from the rail; it is not a glow. */
-  box-shadow: 0 0 0 4px var(--background);
+  box-shadow: 0 0 0 3px var(--background);
 }
 
 .entryBody {
@@ -283,22 +286,22 @@
   justify-items: start;
   gap: var(--space-5);
   height: 100%;
-  border-radius: var(--radius-surface);
-  padding: clamp(1.75rem, 5vw, 3.5rem);
-  background: var(--foreground);
-  color: var(--background);
+  border-top: 1px solid var(--border);
+  padding: clamp(1.75rem, 5vw, 3.5rem) 0;
+  background: transparent;
+  color: var(--foreground);
 }
 
 .contactTitle {
   max-width: 14ch;
-  color: var(--background);
+  color: var(--foreground);
   font-size: clamp(2rem, 1.2rem + 3.2vw, 3.25rem);
 }
 
 .contactCopy {
   margin: 0;
   max-width: 28rem;
-  color: color-mix(in oklab, var(--background) 72%, transparent);
+  color: var(--text-secondary);
   font-size: var(--text-lg);
   line-height: 1.6;
 }
@@ -315,7 +318,7 @@
   padding: 0;
   list-style: none;
   border: 1px solid var(--border);
-  border-radius: var(--radius-surface);
+  border-radius: 4px;
   background: var(--surface);
   overflow: hidden;
 }

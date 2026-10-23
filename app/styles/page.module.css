@@ -102,7 +102,7 @@
 
 .stack {
   display: grid;
-  gap: var(--space-5);
+  gap: 0;
 }
 
 /* A surface that lifts a little when pointed at. Touch and pen never lift. */
@@ -112,21 +112,9 @@
   min-width: 0;
   flex-direction: column;
   border: 1px solid var(--border);
-  border-radius: var(--radius-panel);
+  border-radius: 4px;
   padding: var(--space-6);
   background: var(--surface);
-  transition:
-    transform var(--duration-standard) var(--ease-standard),
-    border-color var(--duration-fast) var(--ease-standard),
-    box-shadow var(--duration-standard) var(--ease-standard);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .tile:hover {
-    transform: translateY(-4px);
-    border-color: var(--border-strong);
-    box-shadow: var(--shadow-raised);
-  }
 }
 
 @media (max-width: 640px) {
@@ -209,13 +197,11 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .tile,
   .textLink,
   .textLink svg {
     transition: none;
   }
 
-  .tile:hover,
   .textLink:hover svg {
     transform: none;
   }

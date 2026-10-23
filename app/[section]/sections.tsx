@@ -4,7 +4,7 @@ import { CopyButton } from '@/components/arc/copy-button/copy-button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/arc/tabs/tabs'
 import { certificates } from '../data/certificates'
 import { projects } from '../data/projects'
-import { experience, principles, skills } from '../data/profile'
+import { experience, focusAreas, skills } from '../data/profile'
 import { links } from '../data/links'
 import { Reveal } from '../components/reveal'
 import { ProjectRow } from '../components/project-tile'
@@ -18,30 +18,25 @@ export function AboutPage() {
   return (
     <div className={wrap}>
       <div className={styles.aboutGrid}>
-        <Reveal>
-          <div className={styles.statement}>
-            <h2 className={`${page.display} ${styles.statementTitle}`}>I work across data, models, and applications.</h2>
-            <p className={styles.statementCopy}>
-              My projects include medical-image classification, multimodal text and image experiments, remote sensing, and web applications. I document what each project tests, what it shows, and what still needs validation.
-            </p>
-          </div>
-        </Reveal>
-        <Reveal delay={80}>
-          <div className={styles.principles}>
-            <h2 className={styles.subhead}>Working principles</h2>
-            <ol className={styles.principleList}>
-              {principles.map(([title, copy], index) => (
-                <li key={title} className={styles.principle}>
-                  <span className={page.number}>0{index + 1}</span>
-                  <div>
-                    <h3 className={styles.principleTitle}>{title}</h3>
-                    <p className={styles.principleCopy}>{copy}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </Reveal>
+        <section className={styles.statement}>
+          <h2 className={`${page.display} ${styles.statementTitle}`}>Computer science student at McPherson University.</h2>
+          <p className={styles.statementCopy}>
+            My project work includes image classification, language-model fine-tuning, and satellite-data analysis. I also lead PyClub McPherson and run Python and AI workshops.
+          </p>
+        </section>
+        <section className={styles.principles}>
+          <h2 className={styles.subhead}>Project areas</h2>
+          <ul className={styles.principleList}>
+            {focusAreas.map(([title, copy]) => (
+              <li key={title} className={styles.principle}>
+                <div>
+                  <h3 className={styles.principleTitle}>{title}</h3>
+                  <p className={styles.principleCopy}>{copy}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </section>
       </div>
     </div>
   )
@@ -57,11 +52,7 @@ export function SkillsPage() {
               <span className={page.number}>0{index + 1}</span>
               <h2 className={`${page.tileTitle} ${styles.skillTitle}`}>{title}</h2>
               <p className={page.tileCopy}>{copy}</p>
-              <div className={page.badges}>
-                {items.map((item) => (
-                  <Badge key={item}>{item}</Badge>
-                ))}
-              </div>
+              <p className={styles.skillItems}>{items.join(' · ')}</p>
             </article>
           </Reveal>
         ))}
@@ -166,12 +157,12 @@ export function ContactPage() {
       <div className={styles.contactGrid}>
         <Reveal>
           <div className={styles.contactPanel}>
-            <h2 className={`${page.display} ${styles.contactTitle}`}>Have a problem worth exploring?</h2>
+            <h2 className={`${page.display} ${styles.contactTitle}`}>Email me.</h2>
             <p className={styles.contactCopy}>
-              I&apos;m open to machine learning engineering, data science, AI research, and collaboration opportunities.
+              I&apos;m easiest to reach by email.
             </p>
             <div className={styles.contactActions}>
-              <LinkButton href={`mailto:${links.email}`} variant="inverse">Email me</LinkButton>
+              <LinkButton href={`mailto:${links.email}`}>Email me</LinkButton>
             </div>
           </div>
         </Reveal>

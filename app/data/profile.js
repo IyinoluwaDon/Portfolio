@@ -2,16 +2,15 @@
 // The wording is unchanged. Edit text here, not in the page files.
 
 export const focusAreas = [
-  ['Vision systems', 'Medical imaging, visual features, and deep learning.'],
-  ['Language models', 'Fine-tuning, evaluation, and culturally grounded NLP.'],
-  ['Applied data', 'Experiments, analysis, and products people can use.'],
+  ['Computer vision', 'Medical imaging and image–text comparison.'],
+  ['Language models', 'Fine-tuning and evaluating text generation.'],
+  ['Geospatial analysis', 'Satellite imagery and vegetation time series.'],
 ]
-
 export const skills = [
-  { title: 'Machine learning & AI', copy: 'Building, tuning, and evaluating models for vision, language, and predictive tasks.', items: ['PyTorch', 'scikit-learn', 'XGBoost', 'LightGBM', 'Transformers', 'PEFT'] },
-  { title: 'Data & analysis', copy: 'Preparing data, exploring evidence, and communicating it clearly.', items: ['Python', 'SQL', 'Pandas', 'NumPy', 'SciPy', 'Power BI', 'Plotly'] },
-  { title: 'Geospatial & research', copy: 'Working with spatial data and experimental workflows.', items: ['ArcGIS Pro', 'Google Earth Engine', 'Sentinel-2', 'LSTM', 'Jupyter', 'Git / GitHub'] },
-  { title: 'Product & deployment', copy: 'Turning models into useful, accessible interfaces and services.', items: ['Streamlit', 'FastAPI', 'Flask', 'Django', 'Supabase', 'Azure AI Services'] },
+  { title: 'Machine learning', copy: 'Model training and evaluation across image, text, and tabular tasks.', items: ['PyTorch', 'scikit-learn', 'XGBoost', 'LightGBM', 'Transformers', 'PEFT'] },
+  { title: 'Data and analysis', copy: 'Data preparation, analysis, and reporting.', items: ['Python', 'SQL', 'Pandas', 'NumPy', 'SciPy', 'Power BI', 'Plotly'] },
+  { title: 'Geospatial', copy: 'Satellite imagery, GIS, and time-series workflows.', items: ['ArcGIS Pro', 'Google Earth Engine', 'Sentinel-2', 'LSTM', 'Jupyter', 'Git / GitHub'] },
+  { title: 'Application development', copy: 'Interfaces and APIs for data projects.', items: ['Streamlit', 'FastAPI', 'Flask', 'Django', 'Supabase', 'Azure AI Services'] },
 ]
 
 export const experience = [
@@ -53,16 +52,4 @@ export const experience = [
       'Drive AI and data-science literacy among 500+ students, connecting learners to DSN scholarships, competitions, and internship pathways.',
     ],
   },
-]
-
-export const principles = [
-  ['Check the data', 'Review source, coverage, labels, missing values, and split design before training.'],
-  ['Use meaningful baselines', 'Compare models with simple benchmarks and keep evaluation data separate from training.'],
-  ['Show the limits', 'Call out illustrative values, proxy labels, small test sets, and missing real-world validation.'],
-]
-
-export const workPoints = [
-  ['See the evidence', 'Public repositories make the technical choices and implementation easy to inspect.'],
-  ['Measure what matters', 'Metrics and results are included where the work supports a responsible claim.'],
-  ['Make it usable', 'Live interfaces translate a model or experiment into something others can explore.'],
 ]

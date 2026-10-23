@@ -1,31 +1,123 @@
-.mark {
-  display: inline-grid;
-  place-items: center;
-  width: 2rem;
-  height: 2rem;
-  border: 1px solid var(--border);
-  border-radius: 50%;
-  background: var(--surface);
+.header {
+  border-bottom: 1px solid var(--border);
+  background: var(--background);
+}
+
+.inner {
+  display: flex;
+  width: min(100% - 3rem, 1200px);
+  min-height: 76px;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  margin-inline: auto;
+}
+
+.brand {
+  flex: 0 0 auto;
   color: var(--foreground);
-  font-size: 0.6875rem;
+  font-size: .95rem;
+  font-weight: 600;
+  letter-spacing: -.025em;
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(.8rem, 2.4vw, 2rem);
+}
+
+.navLink,
+.resume {
+  color: var(--text-secondary);
+  font-size: .875rem;
+  text-decoration: none;
+}
+
+.navLink {
+  padding-block: .75rem;
+  border-bottom: 2px solid transparent;
+}
+
+.navLink:hover,
+.navLink[aria-current='page'] {
+  border-bottom-color: var(--accent);
+  color: var(--foreground);
+}
+
+.actions {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 1rem;
+}
+
+.resume:hover {
+  color: var(--foreground);
+}
+
+.contact {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--foreground);
+  border-radius: 4px;
+  padding: 0 1rem;
+  color: var(--foreground);
+  font-size: .875rem;
   font-weight: 500;
-  letter-spacing: 0.02em;
+  text-decoration: none;
 }
 
-/* Arc's centered header needs room: with the full name, the brand wraps and the links squeeze on tablets and small phones.
-   The initials mark stays, and the name remains in the page for screen readers (font-size 0 keeps it in the text). */
-@container site-header (max-width: 519px) {
-  :global([class*='brand']) {
-    font-size: 0;
+.contact:hover {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+@media (max-width: 760px) {
+  .inner {
+    width: min(100% - 2rem, 1200px);
+    min-height: 68px;
+    flex-wrap: wrap;
+    gap: .75rem 1rem;
+    padding-block: .8rem;
+  }
+
+  .brand {
+    margin-right: auto;
+  }
+
+  .nav {
+    order: 3;
+    flex: 1 0 100%;
+    justify-content: flex-start;
+    gap: clamp(1rem, 5vw, 2rem);
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .navLink {
+    padding-block: .65rem .3rem;
   }
 }
 
-@container site-header (min-width: 760px) and (max-width: 1119px) {
-  :global([class*='brand']) {
-    font-size: 0;
+@media (max-width: 390px) {
+  .inner {
+    width: min(100% - 1.25rem, 1200px);
   }
 
-  :global([class*='navItem']) {
-    padding-inline: 10px;
+  .brand {
+    font-size: .86rem;
+  }
+
+  .actions {
+    gap: .7rem;
+  }
+
+  .nav {
+    justify-content: space-between;
+    gap: .5rem;
   }
 }

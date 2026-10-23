@@ -4,8 +4,8 @@ import '@/components/arc/foundation.css'
 import './globals.css'
 import { SiteNav } from './components/site-header'
 import { SiteBottom } from './components/site-footer'
-import { ThemeToggle } from './components/theme-toggle'
 import { Providers } from './providers'
+import Script from 'next/script'
 
 // Fonts are bundled in app/fonts, so the build never needs to reach Google Fonts.
 const geist = localFont({
@@ -24,10 +24,10 @@ const inter = localFont({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Iyinoluwa Don-Taiwo | Data Scientist',
+    default: 'Iyinoluwa Don-Taiwo | Machine Learning Engineer & Data Scientist',
     template: '%s | Iyinoluwa Don-Taiwo',
   },
-  description: 'Selected work in machine learning, geospatial analysis, and data products by Iyinoluwa Don-Taiwo, a data scientist in Lagos, Nigeria.',
+  description: 'Projects in machine learning, data science, computer vision, and geospatial analysis by Iyinoluwa Don-Taiwo.',
   metadataBase: new URL('https://iyinoluwa-don-taiwo.vercel.app/'),
   alternates: {
     canonical: '/',
@@ -36,8 +36,8 @@ export const metadata: Metadata = {
     icon: '/icon.svg',
   },
   openGraph: {
-    title: 'Iyinoluwa Don-Taiwo | Data Scientist',
-    description: 'Selected work in machine learning, geospatial analysis, and data products.',
+    title: 'Iyinoluwa Don-Taiwo | Machine Learning Engineer & Data Scientist',
+    description: 'Projects in machine learning, data science, computer vision, and geospatial analysis.',
     type: 'website',
     url: 'https://iyinoluwa-don-taiwo.vercel.app/',
     siteName: 'Iyinoluwa Don-Taiwo',
@@ -45,29 +45,24 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Iyinoluwa Don-Taiwo | Data Scientist',
-    description: 'Selected work in machine learning, geospatial analysis, and data products.',
+    title: 'Iyinoluwa Don-Taiwo | Machine Learning Engineer & Data Scientist',
+    description: 'Projects in machine learning, data science, computer vision, and geospatial analysis.',
     images: ['/opengraph-image.png'],
   },
 }
 
-// Runs before first paint so the saved theme never flashes. Light is the default.
-const themeInit = `(function(){try{var t=localStorage.getItem('theme');document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'light')}catch(e){document.documentElement.setAttribute('data-theme','light')}})()`
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" data-theme="light" data-accent="green" className={`${geist.variable} ${inter.variable}`} suppressHydrationWarning>
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: themeInit }} />
-      </head>
+    <html lang="en" data-theme="light" data-accent="green" className={`${geist.variable} ${inter.variable}`}>
       <body>
         <Providers>
           <a className="skip-link" href="#main">Skip to content</a>
           <SiteNav />
           <main id="main">{children}</main>
           <SiteBottom />
-          <ThemeToggle />
         </Providers>
+        <Script src="https://cdn.botpress.cloud/webchat/v5.0/inject.js" strategy="afterInteractive" />
+        <Script src="https://files.bpcontent.cloud/2026/09/19/18/20260919180504-D8YF0M0G.js" strategy="afterInteractive" />
       </body>
     </html>
   )
