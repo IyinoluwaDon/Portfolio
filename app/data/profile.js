@@ -56,9 +56,9 @@ export const experience = [
 ]
 
 export const principles = [
-  ['Frame the question', 'A useful model starts with a precise problem, meaningful constraints, and data worth trusting.'],
-  ['Make evidence visible', 'I favour transparent evaluation, clear metrics, and explanations that hold up beyond a notebook.'],
-  ['Deliver with the user in mind', 'Demos, APIs, and interfaces make technical work easier to test, understand, and act on.'],
+  ['Check the data', 'Review source, coverage, labels, missing values, and split design before training.'],
+  ['Use meaningful baselines', 'Compare models with simple benchmarks and keep evaluation data separate from training.'],
+  ['Show the limits', 'Call out illustrative values, proxy labels, small test sets, and missing real-world validation.'],
 ]
 
 export const workPoints = [

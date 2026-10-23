@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
-import Script from 'next/script'
 import '@/components/arc/foundation.css'
 import './globals.css'
 import { SiteNav } from './components/site-header'
@@ -25,10 +24,10 @@ const inter = localFont({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Iyinoluwa Don-Taiwo | ML Engineer & Data Scientist',
+    default: 'Iyinoluwa Don-Taiwo | Data Scientist',
     template: '%s | Iyinoluwa Don-Taiwo',
   },
-  description: 'Portfolio of Iyinoluwa Don-Taiwo, a Machine Learning Engineer, Data Scientist, and AI Researcher building intelligent systems and data-driven products.',
+  description: 'Selected work in machine learning, geospatial analysis, and data products by Iyinoluwa Don-Taiwo, a data scientist in Lagos, Nigeria.',
   metadataBase: new URL('https://iyinoluwa-don-taiwo.vercel.app/'),
   alternates: {
     canonical: '/',
@@ -37,8 +36,8 @@ export const metadata: Metadata = {
     icon: '/icon.svg',
   },
   openGraph: {
-    title: 'Iyinoluwa Don-Taiwo | ML Engineer & Data Scientist',
-    description: 'Machine learning systems, data products, and cloud-native APIs.',
+    title: 'Iyinoluwa Don-Taiwo | Data Scientist',
+    description: 'Selected work in machine learning, geospatial analysis, and data products.',
     type: 'website',
     url: 'https://iyinoluwa-don-taiwo.vercel.app/',
     siteName: 'Iyinoluwa Don-Taiwo',
@@ -46,8 +45,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Iyinoluwa Don-Taiwo | ML Engineer & Data Scientist',
-    description: 'Machine learning systems, data products, and cloud-native APIs.',
+    title: 'Iyinoluwa Don-Taiwo | Data Scientist',
+    description: 'Selected work in machine learning, geospatial analysis, and data products.',
     images: ['/opengraph-image.png'],
   },
 }
@@ -57,7 +56,7 @@ const themeInit = `(function(){try{var t=localStorage.getItem('theme');document.
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" data-theme="light" data-accent="violet" className={`${geist.variable} ${inter.variable}`} suppressHydrationWarning>
+    <html lang="en" data-theme="light" data-accent="green" className={`${geist.variable} ${inter.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInit }} />
       </head>
@@ -69,14 +68,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <SiteBottom />
           <ThemeToggle />
         </Providers>
-        <Script
-          src="https://cdn.botpress.cloud/webchat/v5.0/inject.js"
-          strategy="afterInteractive"
-        />
-        <Script
-          src="https://files.bpcontent.cloud/2026/09/19/18/20260919180504-D8YF0M0G.js"
-          strategy="afterInteractive"
-        />
       </body>
     </html>
   )

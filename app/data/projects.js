@@ -1,48 +1,71 @@
-/**
- * Add new portfolio projects here.
- *
- * Required fields:
- * - number: display order
- * - title: project name
- * - type: short category shown above the title
- * - description: concise outcome-focused summary
- * - stack: array of technologies
- * - accent: Tailwind gradient classes
- *
- * Optional links:
- * - github: source repository URL
- * - demo: deployed app, API, notebook, or case-study URL
- */
+// Curated work: each entry links to a public repository and states the evidence boundary.
 export const projects = [
   {
     number: '01',
     title: 'ACL Tear Detection',
-    type: 'Medical imaging · Computer vision',
-    description: 'A public Streamlit application for classifying ACL tears from sagittal-plane knee MRI. The ResNet18 transfer-learning model achieved 0.9719 AUC-ROC on 1,370 Stanford MRNet exams; a custom slice-aggregation pipeline supports variable-length DICOM, NIfTI, and NumPy scans.',
-    stack: ['Python', 'PyTorch', 'ResNet18', 'Streamlit'],
+    type: 'Computer vision · Medical imaging',
+    description: 'A ResNet-based research demo that classifies ACL-tear labels from sagittal knee MRI. It validates uploaded NumPy volumes and supports optional DICOM and NIfTI readers.',
+    evidence: 'Reported 0.9719 AUC-ROC on 1,370 Stanford MRNet exams; that result has not been independently reproduced in this repository.',
+    note: 'Research prototype only. It is not a diagnostic tool; there is no external or clinical validation.',
+    stack: ['PyTorch', 'ResNet', 'Streamlit', 'MRI'],
     github: 'https://github.com/IyinoluwaDon/acl-tear-detection',
     demo: 'https://acl-tear-detection.streamlit.app/',
-    result: '0.9719 AUC-ROC',
-    accent: 'from-blue-500/20 via-blue-500/5 to-transparent',
+    result: 'Research prototype',
   },
   {
     number: '02',
-    title: 'E-commerce Listing Consistency Detector',
+    title: 'Product Listing Consistency',
     type: 'Multimodal machine learning',
-    description: 'A multimodal system for flagging mismatches between product images and listing text - a useful signal for recycled imagery and mislabeled catalog entries. It compares TF-IDF, ResNet18, and a DistilBERT-ResNet18 fusion approach on Rakuten France data.',
-    stack: ['Python', 'DistilBERT', 'ResNet18', 'TF-IDF'],
+    description: 'Compares listing images with product text using TF-IDF, ResNet18, and a DistilBERT–ResNet18 fusion model. The task flags constructed image–text mismatches in Rakuten France data.',
+    evidence: 'Includes regression tests for mismatch-label construction and safeguards around image-checkpoint loading.',
+    note: 'Synthetic mismatch labels are a proxy task; the score is not a general moderation or policy decision.',
+    stack: ['PyTorch', 'DistilBERT', 'ResNet18', 'Gradio'],
     github: 'https://github.com/IyinoluwaDon/ecommerce-listing-consistency-detector',
     demo: 'https://huggingface.co/spaces/iyinoluwa/moderation-demo',
-    accent: 'from-violet-500/20 via-violet-500/5 to-transparent',
+    result: 'Multimodal experiment',
   },
   {
     number: '03',
+    title: 'Sentinel-2 Water Mapping',
+    type: 'Geospatial analysis · Remote sensing',
+    description: 'A Python workflow that derives NDWI and MNDWI features from Sentinel-2 imagery and evaluates a decision tree against historical surface-water labels with spatial blocks.',
+    evidence: 'Offline tests and a synthetic-data demo verify pipeline contracts; Google Earth Engine export is available for authenticated projects.',
+    note: 'Real-imagery reference checks remain outstanding, and historical labels are not current ground truth.',
+    stack: ['Python', 'Sentinel-2', 'Google Earth Engine', 'Streamlit'],
+    github: 'https://github.com/IyinoluwaDon/Water-body-detection--Sentinel-2',
+    result: 'Spatial evaluation workflow',
+  },
+  {
+    number: '04',
     title: 'African Folktale Language Model',
-    type: 'Generative AI · Team project',
-    description: 'A team fine-tuning project adapting Gemma 2 2B Instruct to generate African folktale narratives. I led a nine-person team to third place in the TRI AI Saturdays Cohort 10 capstone, reducing training loss from 2.19 to 0.0073 with a loss-masked LoRA configuration.',
-    stack: ['Python', 'Gemma 2', 'Fine-tuning', 'NLP'],
+    type: 'Applied NLP · Team research',
+    description: 'A team capstone comparing TF-IDF retrieval with Gemma 2 2B LoRA fine-tuning for African folktale generation on a synthetic challenge corpus. I led the nine-person Team Ethopie project.',
+    evidence: 'Third place in the TRI AI Saturdays Cohort 10 capstone. The repository includes the notebook, challenge materials, data card, and stakeholder and impact documents.',
+    note: 'The corpus is synthetic. Lower training loss alone does not establish story quality or cultural fidelity.',
+    stack: ['Gemma 2', 'LoRA', 'Hugging Face', 'Kaggle'],
     github: 'https://github.com/IyinoluwaDon/C10-team-Ethopie',
-    result: '3rd place · 9-person team',
-    accent: 'from-cyan-500/20 via-cyan-500/5 to-transparent',
+    result: '3rd place · team lead',
+  },
+  {
+    number: '05',
+    title: 'Omo Forest NDVI Forecasting',
+    type: 'Geospatial time series · Climate and environment',
+    description: 'A Google Earth Engine and LSTM workflow that builds monthly Sentinel-2 NDVI features for Omo Forest Reserve and forecasts vegetation-index values. The repository separates the model notebook from an illustrative dashboard.',
+    evidence: 'With seasonal features, the notebook reports test MAE 0.066 and RMSE 0.080, compared with 0.073 and 0.092 for NDVI-only input; it also includes expanding-window evaluation against persistence baselines.',
+    note: 'The holdout is small and includes interpolated months. Forecasting NDVI does not directly measure deforestation; the dashboard values are illustrative.',
+    stack: ['Python', 'TensorFlow', 'Sentinel-2', 'Google Earth Engine'],
+    github: 'https://github.com/IyinoluwaDon/Omo-Forest-Deforestation-Forecasting',
+    result: 'LSTM · rolling-origin evaluation',
+  },
+  {
+    number: '06',
+    title: 'Shebamiles Employee Management System',
+    type: 'Full-stack web application',
+    description: 'A PHP and MySQL application for employee records, attendance, leave, payroll, reviews, and role-based administration for admins, managers, and employees.',
+    evidence: 'Includes prepared database statements, password hashing, CSRF protections, controlled first-admin setup, and authentication and permission tests.',
+    note: 'PHP checks pass; a live MySQL integration and production deployment have not been exercised.',
+    stack: ['PHP', 'MySQL', 'JavaScript', 'Security testing'],
+    github: 'https://github.com/IyinoluwaDon/Shebamiles-EMS',
+    result: 'Full-stack application',
   },
 ]

@@ -4,7 +4,7 @@ import { CopyButton } from '@/components/arc/copy-button/copy-button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/arc/tabs/tabs'
 import { certificates } from '../data/certificates'
 import { projects } from '../data/projects'
-import { experience, principles, skills, workPoints } from '../data/profile'
+import { experience, principles, skills } from '../data/profile'
 import { links } from '../data/links'
 import { Reveal } from '../components/reveal'
 import { ProjectRow } from '../components/project-tile'
@@ -20,9 +20,9 @@ export function AboutPage() {
       <div className={styles.aboutGrid}>
         <Reveal>
           <div className={styles.statement}>
-            <h2 className={`${page.display} ${styles.statementTitle}`}>The point is not just a model. It is a result people can rely on.</h2>
+            <h2 className={`${page.display} ${styles.statementTitle}`}>I work across data, models, and applications.</h2>
             <p className={styles.statementCopy}>
-              I work from problem framing and data exploration through modelling, evaluation, and delivery. Whether the material is medical imagery, geospatial data, or language, I aim for outcomes that are technically sound and practical.
+              My projects include medical-image classification, multimodal text and image experiments, remote sensing, and web applications. I document what each project tests, what it shows, and what still needs validation.
             </p>
           </div>
         </Reveal>
@@ -73,17 +73,6 @@ export function SkillsPage() {
 export function WorkPage() {
   return (
     <div className={wrap}>
-      <div className={styles.points}>
-        {workPoints.map(([title, copy], index) => (
-          <Reveal key={title} delay={index * 70}>
-            <div className={styles.point}>
-              <span className={page.number}>0{index + 1}</span>
-              <h2 className={styles.pointTitle}>{title}</h2>
-              <p className={styles.pointCopy}>{copy}</p>
-            </div>
-          </Reveal>
-        ))}
-      </div>
       <div className={page.stack}>
         {projects.map((project) => (
           <Reveal key={project.number}>

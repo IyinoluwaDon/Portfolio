@@ -8,6 +8,11 @@ import { projects } from '../app/data/projects.js'
 const targets = []
 const add = (label, url) => url && targets.push({ label, url })
 
+if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(links.email)) {
+  throw new Error(`Email address does not look valid: ${links.email}`)
+}
+console.log(`OK  Email address format\n      ${links.email}`)
+
 add('GitHub profile', links.github)
 add('LinkedIn', links.linkedin)
 add('X', links.x)
@@ -33,19 +38,24 @@ async function check({ label, url }) {
     if (guarded) return { label, url, ok: true, note: `site blocks automated checks (${response.status}), open it in a browser once` }
     return { label, url, ok: response.ok, note: `HTTP ${response.status}` }
   } catch (error) {
+    if (error instanceof TypeError && /\.streamlit\.app\//.test(url)) {
+      return { label, url, ok: null, note: 'Streamlit did not accept the script HTTP request; verify this app in a browser' }
+    }
     return { label, url, ok: false, note: error?.cause?.code || error?.name || 'request failed' }
   }
 }
 
-const results = []
-for (const target of targets) results.push(await check(target))
+const results = await Promise.all(targets.map(check))
 
 for (const result of results) {
-  console.log(`${result.ok ? 'OK  ' : 'FAIL'}  ${result.label}\n      ${result.url}\n      ${result.note}`)
+  const status = result.ok === null ? 'MANUAL' : result.ok ? 'OK  ' : 'FAIL'
+  console.log(`${status}  ${result.label}\n      ${result.url}\n      ${result.note}`)
 }
 
-const failed = results.filter((result) => !result.ok)
-console.log(`\n${results.length - failed.length} of ${results.length} links look fine.`)
+const failed = results.filter((result) => result.ok === false)
+const passed = results.filter((result) => result.ok === true).length
+const manual = results.filter((result) => result.ok === null).length
+console.log(`\n${passed} of ${results.length} links passed; ${manual} require browser verification.`)
 if (failed.length) {
   console.log('Fix the FAIL lines above, then run the check again.')
   process.exitCode = 1

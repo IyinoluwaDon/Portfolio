@@ -10,11 +10,16 @@ export function SiteBottom() {
       variant="columns"
       className={footer.wide}
       brand={{ name: 'Iyinoluwa Don-Taiwo', href: '/', mark: <span className={styles.mark} aria-hidden="true">ID</span> }}
-      tagline="Lagos, Nigeria"
+      tagline="Data science · Lagos, Nigeria"
       columns={[
         {
-          title: 'Pages',
-          links: navItems.map((item) => ({ label: item.label, href: item.href })),
+          title: 'Explore',
+          links: [
+            ...navItems.map((item) => ({ label: item.label, href: item.href })),
+            { label: 'Contact', href: '/contact' },
+            { label: 'Skills', href: '/skills' },
+            { label: 'Credentials', href: '/credentials' },
+          ],
         },
         {
           title: 'Elsewhere',

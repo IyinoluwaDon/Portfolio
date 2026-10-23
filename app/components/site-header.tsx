@@ -3,7 +3,6 @@
 import { usePathname } from 'next/navigation'
 import { SiteHeader } from '@/components/arc/blocks/site-header/site-header'
 import { navItems } from '../data/nav'
-import { links } from '../data/links'
 import styles from './site-header.module.css'
 
 function currentValue(pathname: string) {
@@ -17,7 +16,7 @@ export function SiteNav() {
 
   return (
     <SiteHeader
-      variant="centered"
+      variant="simple"
       label="Primary navigation"
       brand={{
         name: 'Iyinoluwa Don-Taiwo',
@@ -28,9 +27,8 @@ export function SiteNav() {
       current={currentValue(pathname)}
       secondaryAction={null}
       primaryAction={{
-        label: 'View resume',
-        // The resume lives on Google Drive, so open it in a new tab.
-        onClick: () => window.open(links.resume, '_blank', 'noopener,noreferrer'),
+        label: 'Contact',
+        href: '/contact',
       }}
     />
   )

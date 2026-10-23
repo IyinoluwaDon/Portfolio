@@ -1,106 +1,100 @@
+import Image from 'next/image'
 import Link from 'next/link'
-import { HeroSection } from '@/components/arc/blocks/hero-section/hero-section'
-import { StatsBand } from '@/components/arc/blocks/stats-band/stats-band'
-import { InViewTitle } from '@/components/arc/in-view-title/in-view-title'
-import { ArrowUpRight } from 'lucide-react'
-import { projects } from './data/projects'
-import { focusAreas } from './data/profile'
-import { links } from './data/links'
-import { Reveal } from './components/reveal'
-import { Portrait } from './components/portrait'
+import { ArrowDownRight, ArrowUpRight, BriefcaseBusiness, CodeXml, Mail } from 'lucide-react'
+import { Badge } from '@/components/arc/badge/badge'
 import { ProjectTile } from './components/project-tile'
 import { LinkButton } from './components/link-button'
+import { links } from './data/links'
+import { projects } from './data/projects'
 import page from './styles/page.module.css'
 import styles from './home.module.css'
 
-// Every number below already appears on the site: the ACL project, PyClub, and the DSN ambassador role.
-const stats = [
-  { value: 0.9719, decimals: 4, label: 'AUC-ROC on ACL tear detection', detail: 'ResNet18 on 1,370 Stanford MRNet exams' },
-  { value: 100, suffix: '+', label: 'PyClub McPherson members', detail: 'A Python and AI community I founded' },
-  { value: 20, suffix: '+', label: 'Workshops facilitated', detail: 'Mentoring 30+ beginners along the way' },
-  { value: 500, suffix: '+', label: 'Students reached through Data Science Nigeria', detail: 'As campus ambassador at McPherson University' },
-]
+const featuredProjects = projects.slice(0, 6)
 
 export default function Home() {
   return (
     <>
-      <HeroSection
-        variant="split"
-        className={styles.hero}
-        title="Making data do useful work."
-        description="I develop machine-learning systems that move from rigorous experimentation to practical, inspectable tools - across computer vision, language models, multimodal AI, and data products."
-        primaryAction={{ label: 'Explore selected work', href: '/work' }}
-        secondaryAction={{ label: 'View resume', href: links.resume, external: true }}
-        meta={['Machine learning engineer', 'Data scientist', 'AI researcher']}
-        media={<Portrait />}
-      />
-
-      <section className={`${page.container} ${styles.statsWrap}`} aria-label="Key numbers">
-        <StatsBand layout="divided" stats={stats} />
-      </section>
-
-      <section className={`${page.container} ${page.section}`} aria-labelledby="how-i-work">
-        <div className={styles.how}>
-          <div className={styles.howHead}>
-            <InViewTitle id="how-i-work" as="h2" text="Research-minded. Delivery-aware." className={`${page.display} ${page.h2}`} />
+      <section className={`${page.container} ${styles.hero}`} aria-labelledby="intro-title">
+        <div className={styles.heroCopy}>
+          <p className={styles.eyebrow}>Data science · Machine learning · Geospatial</p>
+          <h1 id="intro-title" className={`${page.display} ${styles.title}`}>
+            Iyinoluwa Don-Taiwo
+          </h1>
+          <p className={styles.lede}>
+            I work across machine learning, geospatial data, and software, from experiments to tools people can try.
+          </p>
+          <p className={styles.location}>Based in Lagos, Nigeria <span aria-hidden="true">·</span> Open to research and product work</p>
+          <div className={styles.heroActions}>
+            <LinkButton href="/work">Explore selected work</LinkButton>
+            <LinkButton href={links.resume} external variant="secondary">Resume</LinkButton>
           </div>
-          <div>
-            <Reveal>
-              <p className={page.lede}>
-                The throughline in my work is clarity: frame the problem, make the data trustworthy, evaluate the model honestly, and present the result in a form that people can understand and use.
-              </p>
-            </Reveal>
-            <ol className={styles.focusList}>
-              {focusAreas.map(([title, copy], index) => (
-                <li key={title}>
-                  <Reveal delay={index * 70}>
-                    <div className={styles.focusRow}>
-                      <span className={page.number}>0{index + 1}</span>
-                      <div>
-                        <h3 className={styles.focusTitle}>{title}</h3>
-                        <p className={styles.focusCopy}>{copy}</p>
-                      </div>
-                    </div>
-                  </Reveal>
-                </li>
-              ))}
-            </ol>
-            <Link href="/about" className={page.textLink}>
-              More about my approach <ArrowUpRight size={16} strokeWidth={1.75} aria-hidden="true" />
-            </Link>
+          <div className={styles.socials} aria-label="Contact and profiles">
+            <a href={links.github} target="_blank" rel="noopener noreferrer"><CodeXml size={17} aria-hidden="true" /> GitHub</a>
+            <a href={links.linkedin} target="_blank" rel="noopener noreferrer"><BriefcaseBusiness size={17} aria-hidden="true" /> LinkedIn</a>
+            <a href={`mailto:${links.email}`}><Mail size={17} aria-hidden="true" /> Email</a>
           </div>
         </div>
+        <figure className={styles.portraitFrame}>
+          <Image
+            src={links.photo}
+            alt="Iyinoluwa Don-Taiwo"
+            width={720}
+            height={900}
+            sizes="(max-width: 760px) 72vw, 360px"
+            priority
+            className={styles.portrait}
+          />
+          <figcaption><span className={styles.statusDot} /> Currently at Interspatial Technologies</figcaption>
+        </figure>
+        <a href="#selected-work" className={styles.scrollCue}>
+          <span>Scroll to selected work</span><ArrowDownRight size={16} aria-hidden="true" />
+        </a>
       </section>
 
       <section className={`${page.band} ${page.section}`} aria-labelledby="selected-work">
         <div className={page.container}>
-          <div className={page.sectionHead}>
-            <InViewTitle id="selected-work" as="h2" text="Work with evidence." className={`${page.display} ${page.h2}`} />
-            <Link href="/work" className={page.textLink}>
-              See all projects <ArrowUpRight size={16} strokeWidth={1.75} aria-hidden="true" />
-            </Link>
+          <div className={styles.sectionHead}>
+            <div>
+              <p className={styles.eyebrow}>A selection of work</p>
+              <h2 id="selected-work" className={`${page.display} ${page.h2}`}>Selected projects</h2>
+            </div>
+            <Link href="/work" className={page.textLink}>All selected projects <ArrowUpRight size={16} aria-hidden="true" /></Link>
           </div>
           <div className={styles.projectGrid}>
-            {projects.map((project, index) => (
-              <Reveal key={project.number} delay={index * 80} className={styles.tileCell}>
-                <ProjectTile project={project} />
-              </Reveal>
-            ))}
+            {featuredProjects.map((project) => <ProjectTile key={project.number} project={project} />)}
           </div>
         </div>
       </section>
 
-      <section className={`${page.container} ${page.section}`} aria-labelledby="connect">
-        <Reveal>
-          <div className={styles.cta}>
-            <h2 id="connect" className={`${page.display} ${styles.ctaTitle}`}>Have a problem worth exploring?</h2>
-            <p className={styles.ctaCopy}>I&apos;m open to ML engineering, data science, AI research, and collaborative opportunities.</p>
-            <div className={styles.ctaActions}>
-              <LinkButton href="/contact" variant="inverse">Start a conversation</LinkButton>
-              <LinkButton href={links.github} variant="inverseOutline" external>GitHub</LinkButton>
+      <section className={`${page.container} ${page.section}`} aria-labelledby="current-work">
+        <div className={styles.currentGrid}>
+          <div>
+            <p className={styles.eyebrow}>What I&apos;m working on</p>
+              <h2 id="current-work" className={`${page.display} ${page.h2}`}>Current work</h2>
+          </div>
+          <div className={styles.currentContent}>
+            <p>
+              At Interspatial Technologies, I work with geospatial data, quality checks, and vegetation time series. At TRI AI Saturdays, I led a team project on language-model adaptation for folktale generation.
+            </p>
+            <div className={styles.focusTags} aria-label="Areas of work">
+              {['Computer vision', 'Applied NLP', 'Geospatial analysis', 'Data products'].map((tag) => <Badge key={tag} size="sm">{tag}</Badge>)}
+            </div>
+            <div className={styles.inlineLinks}>
+              <Link href="/experience" className={page.textLink}>Experience <ArrowUpRight size={16} aria-hidden="true" /></Link>
+              <Link href="/about" className={page.textLink}>About my work <ArrowUpRight size={16} aria-hidden="true" /></Link>
             </div>
           </div>
-        </Reveal>
+        </div>
+      </section>
+
+      <section className={`${page.container} ${page.sectionFlush}`} aria-labelledby="contact-title">
+        <div className={styles.contactPanel}>
+          <div>
+            <p className={styles.eyebrow}>Get in touch</p>
+            <h2 id="contact-title" className={`${page.display} ${styles.contactTitle}`}>Get in touch about a project or role.</h2>
+          </div>
+          <LinkButton href={`mailto:${links.email}`}>Write to me</LinkButton>
+        </div>
       </section>
     </>
   )

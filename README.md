@@ -1,34 +1,54 @@
-# Personal Portfolio
+# Iyinoluwa Don-Taiwo — Portfolio
 
-A Next.js portfolio site with project pages, certificates and contact links. Page content is maintained in the application data files.
+A personal portfolio for selected work in machine learning, geospatial analysis, and software. Each project entry links to public source code and summarizes the method, available evidence, and known limits.
 
-## What is included
+## Featured work
 
-- Next.js application with responsive page components
-- Project and certificate content under `app/data`
-- Production build check in CI
+- **ACL Tear Detection** — MRI classification research demo; not a medical device.
+- **Product Listing Consistency** — multimodal image and text mismatch experiment.
+- **Sentinel-2 Water Mapping** — spatially evaluated water-index workflow.
+- **African Folktale Language Model** — Gemma 2 fine-tuning capstone using synthetic stories.
+- **Omo Forest NDVI Forecasting** — Sentinel-2 time-series and LSTM evaluation.
+- **Shebamiles Employee Management System** — PHP and MySQL web application.
 
 ## Run locally
+
+Requirements: Node.js 20.9 or newer and npm.
 
 ```sh
 npm ci
 npm run dev
 ```
 
-## Verify
+Open `http://localhost:3000`. Build the production site with:
 
+```sh
 npm run build
+npm run start
+```
 
-## Repository map
+Check public project, profile, resume, and certificate links with:
 
-`app/` contains routes and content. `public/` contains static assets. `package.json` and `package-lock.json` define the application and reproducible install.
+```sh
+npm run check:links
+```
 
-## Evidence and limitations
+Some services block automated requests. The checker reports those cases so they can be opened in a browser manually.
 
-The production build passes locally. No hosting deployment was performed in this maintenance pass.
+## Project structure
 
-Review every project description, metric, external link and certificate for accuracy and permission before publishing. Configure the selected host and production domain separately; no deployment configuration or live deployment is implied by this repository.
+- `app/` — routes, shared page sections, copy, and project data.
+- `app/data/` — editable project, profile, navigation, certificate, and link content.
+- `components/arc/` — the UI Arc React components used by the site, checked into the repository.
+- `public/` — portrait, site icon, and social preview image.
+- `.github/workflows/ci.yml` — install and production-build check for pushes and pull requests.
 
-## License
+## Deployment
 
-No repository license file is included. Unless the project owner adds a license, do not assume the code, data or model artifacts may be redistributed or reused. Verify third-party data and model terms separately.
+The site is a standard Next.js application and can be deployed to Vercel or another host that supports Next.js. Set the production URL in `app/layout.tsx` metadata before deployment. No deployment is run by this repository's CI workflow.
+
+## Content and evidence
+
+Project claims are deliberately qualified where a repository does not reproduce the result or use real-world validation. The Omo Forest dashboard uses illustrative values; its separate notebook contains the extraction, training, and evaluation workflow. The ACL demo is a research prototype and is not for diagnosis. Review the linked project repositories for data and model terms before reuse.
+
+The site uses a locally bundled UI Arc component library in `components/arc/`; no runtime Arc service or MCP connection is required to run the portfolio.
