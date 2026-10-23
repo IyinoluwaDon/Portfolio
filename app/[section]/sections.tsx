@@ -3,11 +3,10 @@ import { Badge } from '@/components/arc/badge/badge'
 import { CopyButton } from '@/components/arc/copy-button/copy-button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/arc/tabs/tabs'
 import { certificates } from '../data/certificates'
-import { projects } from '../data/projects'
 import { experience, focusAreas, skills } from '../data/profile'
 import { links } from '../data/links'
 import { Reveal } from '../components/reveal'
-import { ProjectRow } from '../components/project-tile'
+import { WorkDeck } from '../components/work-deck'
 import { LinkButton } from '../components/link-button'
 import page from '../styles/page.module.css'
 import styles from './sections.module.css'
@@ -19,9 +18,9 @@ export function AboutPage() {
     <div className={wrap}>
       <div className={styles.aboutGrid}>
         <section className={styles.statement}>
-          <h2 className={`${page.display} ${styles.statementTitle}`}>Computer science student at McPherson University.</h2>
+          <h2 className={`${page.display} ${styles.statementTitle}`}>Machine learning and data science, grounded in the work.</h2>
           <p className={styles.statementCopy}>
-            My project work includes image classification, language-model fine-tuning, and satellite-data analysis. I also lead PyClub McPherson and run Python and AI workshops.
+            I build machine learning systems, study the data behind them and explain what the results show. I founded PyClub McPherson, a Python and AI community where more than 100 members learn by building.
           </p>
         </section>
         <section className={styles.principles}>
@@ -64,13 +63,7 @@ export function SkillsPage() {
 export function WorkPage() {
   return (
     <div className={wrap}>
-      <div className={page.stack}>
-        {projects.map((project) => (
-          <Reveal key={project.number}>
-            <ProjectRow project={project} />
-          </Reveal>
-        ))}
-      </div>
+      <WorkDeck />
     </div>
   )
 }

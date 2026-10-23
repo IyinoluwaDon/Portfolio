@@ -24,7 +24,7 @@ const inter = localFont({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Iyinoluwa Don-Taiwo | Machine Learning Engineer & Data Scientist',
+    default: 'Iyinoluwa Don-Taiwo — Machine Learning Engineer and Data Scientist',
     template: '%s | Iyinoluwa Don-Taiwo',
   },
   description: 'Projects in machine learning, data science, computer vision, and geospatial analysis by Iyinoluwa Don-Taiwo.',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     icon: '/icon.svg',
   },
   openGraph: {
-    title: 'Iyinoluwa Don-Taiwo | Machine Learning Engineer & Data Scientist',
+    title: 'Iyinoluwa Don-Taiwo — Machine Learning Engineer and Data Scientist',
     description: 'Projects in machine learning, data science, computer vision, and geospatial analysis.',
     type: 'website',
     url: 'https://iyinoluwa-don-taiwo.vercel.app/',
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" data-theme="light" data-accent="green" className={`${geist.variable} ${inter.variable}`}>
+    <html lang="en" data-theme="light" data-accent="violet" className={`${geist.variable} ${inter.variable}`}>
       <body>
         <Providers>
           <a className="skip-link" href="#main">Skip to content</a>

@@ -9,7 +9,7 @@ export function SiteBottom() {
       <div className={styles.inner}>
         <div className={styles.identity}>
           <Link className={styles.name} href="/">Iyinoluwa Don-Taiwo</Link>
-          <p>Machine Learning Engineer | Data Scientist</p>
+          <p>Machine learning engineer and data scientist</p>
         </div>
         <nav className={styles.links} aria-label="Footer navigation">
           {navItems.map((item) => <Link key={item.value} href={item.href}>{item.label}</Link>)}
