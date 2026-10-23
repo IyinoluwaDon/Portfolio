@@ -362,19 +362,23 @@
 .modelCompare b { color: #262822; font-size: .92rem; font-weight: 600; font-variant-numeric: tabular-nums; }
 
 /* Omo forest results */
-.forestChart { display: grid; grid-template-columns: 2.5rem 1fr; grid-template-rows: 13rem 1rem; margin-block: 3.7rem 1.2rem; }
-.forestChart svg { width: 100%; height: 100%; overflow: visible; }
-.chartY { display: flex; flex-direction: column; justify-content: space-between; padding-block: .4rem; color: rgb(255 255 255 / 58%); font-size: .58rem; }
-.chartX { display: flex; grid-column: 2; justify-content: space-between; color: rgb(255 255 255 / 58%); font-size: .58rem; }
-.forestLegend { display: flex; flex-wrap: wrap; gap: .7rem 1.2rem; font-size: .65rem; }
-.forestLegend span { display: inline-flex; align-items: center; gap: .45rem; }
-.forestLegend i { width: 1rem; height: 2px; background: #efece1; }
-.forestLegend span + span i { background: #c9ef68; }
+.forestMetrics { display: grid; gap: 1.5rem; margin-block: 4.4rem 1rem; }
+.forestMetric { display: grid; gap: .6rem; }
+.forestMetric > strong { color: #c9ef68; font-family: var(--font-display); font-size: 1.15rem; font-weight: 550; }
+.forestMetric > div { display: grid; grid-template-columns: 5.6rem minmax(0, 1fr) 2.7rem; align-items: center; gap: .55rem; font-size: .62rem; }
+.forestMetric > div > span { color: rgb(255 255 255 / 66%); }
+.forestMetric i { height: .3rem; background: rgb(255 255 255 / 18%); }
+.forestMetric i b { display: block; height: 100%; background: #dedbd0; }
+.forestMetric > div + div i b { background: #c9ef68; }
+.forestMetric small { color: #f3f0e8; font-size: .65rem; font-variant-numeric: tabular-nums; }
+.forestMetrics p { margin: 0; color: rgb(255 255 255 / 54%); font-size: .59rem; }
 
 /* Language model results */
-.storyPaper { margin: 3rem 0 1.1rem; padding: 1.2rem 1.5rem 1.3rem; background: #f8edd4; box-shadow: 9px 10px 0 rgb(63 49 21 / 14%); transform: rotate(1.2deg); }
+.storyPaper { display: grid; gap: .8rem; margin: 3rem 0 1.1rem; padding: 1.2rem 1.5rem 1.3rem; background: #f8edd4; box-shadow: 9px 10px 0 rgb(63 49 21 / 14%); transform: rotate(1.2deg); }
 .storyEyebrow { font-size: .55rem; letter-spacing: .11em; }
-.storyPaper p { max-width: 16ch; margin: 1rem 0 .7rem; font-family: Georgia, serif; font-size: clamp(1.35rem, 1rem + 1.4vw, 2rem); font-style: italic; line-height: 1.24; }
+.storyCounts { display: flex; align-items: baseline; gap: 1rem; border-bottom: 1px solid rgb(29 36 33 / 17%); padding-bottom: .5rem; }
+.storyCounts strong { color: #456a52; font-family: var(--font-display); font-size: clamp(1.35rem, 1rem + 1.2vw, 1.8rem); font-weight: 600; font-variant-numeric: tabular-nums; }
+.storyCounts span { color: #554d3c; font-size: .73rem; }
 .storyPaper small { color: #71654e; font-size: .58rem; }
 .distanceChart { display: grid; gap: .7rem; }
 .distanceChart > div { display: grid; grid-template-columns: 6rem 1fr 3.5rem; align-items: center; gap: .65rem; font-size: .64rem; }

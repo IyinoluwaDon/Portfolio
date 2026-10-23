@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     default: 'Iyinoluwa Don-Taiwo — Machine Learning Engineer and Data Scientist',
     template: '%s | Iyinoluwa Don-Taiwo',
   },
-  description: 'Projects in machine learning, data science, computer vision, and geospatial analysis by Iyinoluwa Don-Taiwo.',
+  description: 'Machine learning and data science projects by Iyinoluwa Don-Taiwo, with code, demonstrations and evaluation notes.',
   metadataBase: new URL('https://iyinoluwa-don-taiwo.vercel.app/'),
   alternates: {
     canonical: '/',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Iyinoluwa Don-Taiwo — Machine Learning Engineer and Data Scientist',
-    description: 'Projects in machine learning, data science, computer vision, and geospatial analysis.',
+    description: 'Machine learning and data science projects, with code, demonstrations and evaluation notes.',
     type: 'website',
     url: 'https://iyinoluwa-don-taiwo.vercel.app/',
     siteName: 'Iyinoluwa Don-Taiwo',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Iyinoluwa Don-Taiwo | Machine Learning Engineer & Data Scientist',
-    description: 'Projects in machine learning, data science, computer vision, and geospatial analysis.',
+    description: 'Machine learning and data science projects, with code, demonstrations and evaluation notes.',
     images: ['/opengraph-image.png'],
   },
 }

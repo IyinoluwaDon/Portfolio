@@ -15,7 +15,7 @@ export default function Home() {
           <p className={styles.role}>Machine learning engineer &amp; data scientist</p>
           <h1 id="intro-title" className={styles.title}>Iyinoluwa<br />Don-Taiwo<span>.</span></h1>
           <p className={styles.lede}>
-            I build machine learning systems, test what holds up, and turn the useful parts into tools people can try.
+            I take machine learning projects from data preparation through evaluation and into tools people can try. Each project shows what its results measure and where they stop.
           </p>
           <div className={styles.heroActions}>
             <LinkButton href="#selected-work">Explore my work</LinkButton>

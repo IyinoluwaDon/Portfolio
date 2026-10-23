@@ -18,9 +18,9 @@ export function AboutPage() {
     <div className={wrap}>
       <div className={styles.aboutGrid}>
         <section className={styles.statement}>
-          <h2 className={`${page.display} ${styles.statementTitle}`}>Machine learning and data science, grounded in the work.</h2>
+          <h2 className={`${page.display} ${styles.statementTitle}`}>I build and evaluate machine learning systems.</h2>
           <p className={styles.statementCopy}>
-            I build machine learning systems, study the data behind them and explain what the results show. I founded PyClub McPherson, a Python and AI community where more than 100 members learn by building.
+            I work on applied ML, data analysis and geospatial projects. I also founded PyClub McPherson, a Python and AI community with more than 100 members.
           </p>
         </section>
         <section className={styles.principles}>

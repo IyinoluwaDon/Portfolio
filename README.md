@@ -1,15 +1,6 @@
-# Iyinoluwa Don-Taiwo — Portfolio
+# Iyinoluwa Don-Taiwo
 
-A personal portfolio for selected work in machine learning, geospatial analysis, and software. Each project entry links to public source code and summarizes the method, available evidence, and known limits.
-
-## Featured work
-
-- **ACL Tear Detection** — MRI classification research demo; not a medical device.
-- **Product Listing Consistency** — multimodal image and text mismatch experiment.
-- **Sentinel-2 Water Mapping** — spatially evaluated water-index workflow.
-- **African Folktale Language Model** — Gemma 2 fine-tuning capstone using synthetic stories.
-- **Omo Forest NDVI Forecasting** — Sentinel-2 time-series and LSTM evaluation.
-- **Shebamiles Employee Management System** — PHP and MySQL web application.
+Portfolio for a machine learning engineer and data scientist. The site groups six projects across computer vision, multimodal learning, geospatial analysis, language models and application development. Visitors can browse an animated project deck, inspect the evidence and limitations for each project, and download the selected-work presentation.
 
 ## Run locally
 
@@ -20,35 +11,32 @@ npm ci
 npm run dev
 ```
 
-Open `http://localhost:3000`. Build the production site with:
+Open `http://localhost:3000`. Check the production build and external links with:
 
 ```sh
 npm run build
-npm run start
-```
-
-Check public project, profile, resume, and certificate links with:
-
-```sh
 npm run check:links
 ```
 
-Some services block automated requests. The checker reports those cases so they can be opened in a browser manually.
+## Update the portfolio
 
-## Project structure
+- `app/data/projects.js` contains project descriptions, evidence, limitations, categories and public links.
+- `app/data/profile.js` contains experience and skills.
+- `app/data/links.js` contains contact, resume and profile links.
+- `app/components/work-deck.tsx` and its CSS contain the project slides and diagrams.
+- `public/decks/` contains the downloadable PDF and editable PowerPoint.
 
-- `app/` — routes, shared page sections, copy, and project data.
-- `app/data/` — editable project, profile, navigation, certificate, and link content.
-- `components/arc/` — the UI Arc React components used by the site, checked into the repository.
-- `public/` — portrait, site icon, and social preview image.
-- `.github/workflows/ci.yml` — install and production-build check for pushes and pull requests.
+The PowerPoint source can be rebuilt with Python and `python-pptx`:
 
-## Deployment
+```sh
+python -m pip install -r requirements-deck.txt
+python scripts/build_project_deck.py
+```
 
-The site is a standard Next.js application and can be deployed to Vercel or another host that supports Next.js. Set the production URL in `app/layout.tsx` metadata before deployment. No deployment is run by this repository's CI workflow.
+Export the regenerated PowerPoint as PDF to refresh the PDF download.
 
-## Content and evidence
+## Project evidence
 
-Project claims are deliberately qualified where a repository does not reproduce the result or use real-world validation. The Omo Forest dashboard uses illustrative values; its separate notebook contains the extraction, training, and evaluation workflow. The ACL demo is a research prototype and is not for diagnosis. Review the linked project repositories for data and model terms before reuse.
+Project results are described alongside their dataset, evaluation context and known limits. The MRI model is a research prototype, not a diagnostic tool. Product-listing mismatch labels come from deliberately swapped images and do not represent general moderation. The Omo Forest dashboard contains illustrative values; the linked notebook is the source for the separate model evaluation. The Sentinel-2 preview uses generated data and does not establish real-world map accuracy. The employee system's live MySQL setup has not been tested in this workspace.
 
-The site uses a locally bundled UI Arc component library in `components/arc/`; no runtime Arc service or MCP connection is required to run the portfolio.
+The site uses the UI Arc components checked into `components/` and keeps the Botpress webchat scripts in the shared layout. The app can be deployed to Vercel or another host that supports Next.js. Set the production URL in `app/layout.tsx` before deployment.

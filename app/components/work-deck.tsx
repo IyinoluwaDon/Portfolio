@@ -152,7 +152,7 @@ function ProjectArtwork({ project }: { project: Project }) {
   return (
     <div className={`${styles.artwork} ${styles[project.visual]}`} aria-label={`${project.category} illustration`}>
       {project.visual === 'mri' && <>
-        <div className={styles.artLabel}>Volume classification <span>01</span></div>
+        <div className={styles.artLabel}>Schematic MRI volume <span>01</span></div>
         <div className={styles.scanStage}>
           {[0, 1, 2].map((slice) => (
             <div className={`${styles.scanSlice} ${styles[`slice${slice + 1}`]}`} key={slice}>
@@ -173,7 +173,7 @@ function ProjectArtwork({ project }: { project: Project }) {
       </>}
 
       {project.visual === 'listing' && <>
-        <div className={styles.artLabel}>Pair check <span>02</span></div>
+        <div className={styles.artLabel}>Illustrative listing pair <span>02</span></div>
         <div className={styles.listingCompare}>
           <div className={styles.productPicture} aria-hidden="true">
             <div className={styles.productSun} /><div className={styles.productBag} />
@@ -193,28 +193,30 @@ function ProjectArtwork({ project }: { project: Project }) {
       </>}
 
       {project.visual === 'forest' && <>
-        <div className={styles.artLabel}>NDVI forecast evaluation <span>03</span></div>
-        <div className={styles.forestChart}>
-          <div className={styles.chartY}><span>0.10</span><span>0.05</span><span>0.00</span></div>
-          <svg viewBox="0 0 440 220" role="img" aria-label="Reported MAE comparison: NDVI-only 0.073, seasonal features 0.066">
-            <path d="M10 28h420M10 110h420M10 192h420" stroke="#fff" strokeOpacity=".16" />
-            <path d="M12 64C42 51 50 94 80 78S124 75 147 99s55-12 77 14 47-22 75-2 44 4 61 28 49-19 72-6" fill="none" stroke="#efece1" strokeWidth="3" />
-            <path d="M12 71C42 63 50 91 80 82S124 79 147 94s55-7 77 8 47-14 75-2 44 2 61 17 49-11 72-2" fill="none" stroke="#c9ef68" strokeWidth="3" />
-            <circle cx="432" cy="133" r="5" fill="#c9ef68" />
-            <circle cx="432" cy="104" r="5" fill="#efece1" />
-          </svg>
-          <div className={styles.chartX}><span>2018</span><span>2022</span><span>2026</span></div>
+        <div className={styles.artLabel}>Reported holdout errors <span>03</span></div>
+        <div className={styles.forestMetrics}>
+          <div className={styles.forestMetric}>
+            <strong>MAE</strong>
+            <div><span>NDVI only</span><i><b style={{ width: '73%' }} /></i><small>0.073</small></div>
+            <div><span>Seasonal</span><i><b style={{ width: '66%' }} /></i><small>0.066</small></div>
+          </div>
+          <div className={styles.forestMetric}>
+            <strong>RMSE</strong>
+            <div><span>NDVI only</span><i><b style={{ width: '77%' }} /></i><small>0.092</small></div>
+            <div><span>Seasonal</span><i><b style={{ width: '67%' }} /></i><small>0.080</small></div>
+          </div>
+          <p>Lower is better. Notebook results, not live dashboard values.</p>
         </div>
-        <div className={styles.forestLegend}><span><i /> NDVI only · MAE 0.073</span><span><i /> Seasonal features · MAE 0.066</span></div>
         <div className={styles.artFooter}><span>OMO FOREST RESERVE</span><span>SENTINEL-2</span><span>MODEL NOTEBOOK</span></div>
       </>}
 
       {project.visual === 'folktale' && <>
         <div className={styles.artLabel}>Challenge benchmark <span>04</span></div>
         <div className={styles.storyPaper}>
-          <span className={styles.storyEyebrow}>TEAM ETHOPIE · COHORT 10</span>
-          <p>“When the river changed its course, the village learned to listen...”</p>
-          <small>Illustrative line · not generated benchmark output</small>
+          <span className={styles.storyEyebrow}>TEAM ETHOPIE / COHORT 10</span>
+          <div className={styles.storyCounts}><strong>24</strong><span>synthetic folktales</span></div>
+          <div className={styles.storyCounts}><strong>38</strong><span>prompt-story pairs</span></div>
+          <small>Benchmark training material</small>
         </div>
         <div className={styles.distanceChart}>
           <div><span>Baseline</span><i><b style={{ width: '100%' }} /></i><strong>211.00</strong></div>
@@ -225,7 +227,7 @@ function ProjectArtwork({ project }: { project: Project }) {
       </>}
 
       {project.visual === 'water' && <>
-        <div className={styles.artLabel}>Sentinel-2 feature path <span>05</span></div>
+        <div className={styles.artLabel}>Illustrated feature path <span>05</span></div>
         <div className={styles.waterFlow}>
           <div className={styles.satelliteGrid} aria-hidden="true">{Array.from({ length: 25 }, (_, i) => <i key={i} />)}</div>
           <div className={styles.indexEquations}>
@@ -238,7 +240,7 @@ function ProjectArtwork({ project }: { project: Project }) {
       </>}
 
       {project.visual === 'ems' && <>
-        <div className={styles.artLabel}>Employee system <span>06</span></div>
+        <div className={styles.artLabel}>Interface schematic <span>06</span></div>
         <div className={styles.emsWindow}>
           <div className={styles.emsBar}><i /><i /><i /><span>PEOPLE / OVERVIEW</span></div>
           <div className={styles.emsBody}>
