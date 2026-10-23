@@ -207,7 +207,7 @@
   }
 }
 
-.container { max-width: 1340px; padding-inline: clamp(1.15rem, 4vw, 3.5rem); }
+.container { max-width: 1480px; padding-inline: clamp(1.15rem, 4vw, 3.5rem); }
 .section { padding-block: clamp(2.6rem, 5vw, 4.8rem); }
 .sectionFlush { padding-bottom: clamp(2.8rem, 5vw, 5rem); }
 .intro { grid-template-columns: minmax(0, 1.1fr) minmax(15rem, .7fr); align-items: end; gap: clamp(1.5rem, 4vw, 4rem); padding-top: clamp(2.2rem, 5vw, 4.1rem); padding-bottom: clamp(1.6rem, 3vw, 2.8rem); border-bottom: 1px solid var(--border); }

@@ -17,21 +17,21 @@ export default function Home() {
     <>
       <section className={`${page.container} ${styles.hero}`} aria-labelledby="intro-title">
         <div className={styles.heroCopy}>
-          <div className={styles.heroMeta}><span>PORTFOLIO / 2026</span><span>DATA SCIENCE × MACHINE LEARNING</span></div>
+          <div className={styles.heroMeta}><span>SELECTED WORK / 08</span></div>
           <p className={styles.role}>Data scientist <i>/</i> Machine learning engineer</p>
           <h1 id="intro-title" className={styles.title}>Iyinoluwa<br />Don-Taiwo<span>.</span></h1>
           <p className={styles.lede}>
-            Recent work includes checking 4,000+ street records, comparing image and text models on 20,000 product listings, and testing seasonal NDVI forecasts for Omo Forest.
+            The work spans knee MRI classification, product image–text matching and satellite imagery. Case pages pair each result with its dataset, method and code.
           </p>
           <p className={styles.heroDetails}>
-            Each case shows what went into the analysis, how I measured it and what still needs verification.
+            Browse the project slides or download the presentation decks below.
           </p>
           <div className={styles.heroActions}>
             <Link className={styles.primaryAction} href="#selected-work">Explore the work <ArrowDownRight size={17} aria-hidden="true" /></Link>
             <a className={styles.resumeLink} href={links.resume} target="_blank" rel="noopener noreferrer">Resume <ArrowUpRight size={15} aria-hidden="true" /></a>
           </div>
           <div className={styles.heroFoot}>
-            <span>MODEL / DATA / INTERFACE / EVALUATION</span>
+            <span>PROJECTS / NOTES / PRESENTATIONS</span>
             <span>SCROLL TO EXPLORE ↓</span>
           </div>
         </div>

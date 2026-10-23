@@ -151,10 +151,11 @@
 }
 
 .header { border-bottom-color:#35363d; background:rgb(16 17 20 / 88%); }
+.inner { width: min(100% - 4rem, 1440px); }
 .brand,.navLink,.resume { color:#e7e3da; }
 .mark { background:#ff765d; color:#141518; font-family:var(--font-mono); }
 .navLink::after { background:#78e5d0; }
 .navLink:hover,.navLink[aria-current='page'],.resume:hover { color:#fff; }
 .contact { border-color:#78e5d0; background:#78e5d0; color:#121619; }
 .contact:hover { background:transparent; color:#b7fff0; }
-@media(max-width:760px) { .nav { border-color:#35363d; } }
+@media(max-width:760px) { .inner { width: min(100% - 2rem, 1200px); } .nav { border-color:#35363d; } }

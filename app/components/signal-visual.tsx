@@ -33,7 +33,7 @@ export function SignalVisual() {
         <span>product listings</span>
       </div>
       <span className={styles.crosshair} aria-hidden="true" />
-      <span className={styles.visualCaption}>DATA IN / RESULTS OUT <i>FIELD NOTES 2026</i></span>
+      <span className={styles.visualCaption}>DATA IN / RESULTS OUT <i>MODEL NOTES / 01</i></span>
     </div>
   )
 }

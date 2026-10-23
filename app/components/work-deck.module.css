@@ -486,6 +486,12 @@
 
 .arrows button:hover { border-color: #c9ef68; background: #c9ef68; color: #1e2130; }
 
+@media (min-width: 951px) {
+  .deckHead { flex-wrap: wrap; align-items: flex-start; }
+  .categoryList { min-width: 0; flex: 1 0 100%; gap: .35rem clamp(.75rem, 1.25vw, 1.2rem); }
+  .downloads { align-self: flex-end; }
+}
+
 @media (max-width: 950px) {
   .deckHead { align-items: flex-start; flex-direction: column; gap: .6rem; }
   .downloads { align-self: flex-end; }
