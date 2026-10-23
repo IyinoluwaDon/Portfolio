@@ -400,3 +400,32 @@
     transform: none;
   }
 }
+
+.aboutDetails { display:grid; grid-template-columns:minmax(15rem,.8fr) minmax(0,1.2fr); gap:clamp(1.5rem,5vw,5rem); margin-top:clamp(3rem,7vw,6rem); border-top:1px solid #383a3e; border-bottom:1px solid #383a3e; padding-block:2rem; }
+.aboutDetailIntro span,.education > span { color:#a9f0dc; font-family:var(--font-mono,monospace); font-size:.65rem; letter-spacing:.1em; }
+.aboutDetailIntro h2,.education h2,.skillContext h2 { margin:.9rem 0 0; color:#f4f0e7; font:clamp(1.8rem,3.5vw,3rem)/1.05 var(--font-display); letter-spacing:-.035em; }
+.aboutDetailCopy p { margin:0; color:#c5c3bc; font-size:.96rem; line-height:1.72; }
+.aboutDetailCopy p+p { margin-top:1rem; }
+.aboutNumbers { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-top:1rem; }
+.aboutNumbers div { display:grid; gap:.6rem; border-left:2px solid #ff876e; padding:1rem; background:#191a1e; }
+.aboutNumbers strong { color:#ff9b81; font:clamp(1.8rem,4vw,3rem)/1 var(--font-display); }
+.aboutNumbers span { max-width:22rem; color:#c5c3bc; font-size:.8rem; line-height:1.5; }
+.education { display:grid; grid-template-columns:9rem minmax(0,1fr) minmax(15rem,.8fr); align-items:start; gap:1.5rem; margin-top:4.5rem; border-top:1px solid #383a3e; padding-top:1.5rem; }
+.education h2 { margin:0; font-size:1.7rem; }
+.education p { margin:.5rem 0 0; color:#c5c3bc; font-size:.87rem; line-height:1.6; }
+.education p:last-child { margin:0; }
+.skill { min-height:unset; padding:1.35rem; }
+.skillTitle { margin-top:.75rem; }
+.skillItems { margin:1.1rem 0 0; color:#a9f0dc; line-height:1.8; }
+.skillContext { margin-top:4.5rem; border-top:1px solid #383a3e; padding-top:1.4rem; }
+.skillContext h2 { margin:0 0 1.4rem; font-size:2rem; }
+.skillContext > div { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 2rem; }
+.skillContext p { display:grid; gap:.35rem; margin:0; border-top:1px solid #383a3e; padding:1rem 0; }
+.skillContext b { color:#f2eee4; font-size:.9rem; }
+.skillContext span,.experienceLead,.credentialsLead p { color:#c5c3bc; font-size:.87rem; line-height:1.6; }
+.experienceLead { max-width:55rem; margin:0 0 2rem; font-size:1rem; }
+.credentialsLead { display:flex; align-items:baseline; gap:2rem; margin:0 0 1.8rem; border-bottom:1px solid #383a3e; padding-bottom:1rem; }
+.credentialsLead span { color:#a9f0dc; font-family:var(--font-mono,monospace); font-size:.65rem; white-space:nowrap; }
+.credentialsLead p { max-width:50rem; margin:0; }
+.contactCopy { max-width:35rem; }
+@media(max-width:760px) { .aboutDetails,.education { grid-template-columns:1fr; gap:1rem; } .aboutNumbers { grid-template-columns:1fr; } .skillContext>div { grid-template-columns:1fr; } .credentialsLead { display:grid; gap:.5rem; } }

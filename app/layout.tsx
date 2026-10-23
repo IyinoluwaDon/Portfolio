@@ -1,26 +1,14 @@
 import type { Metadata } from 'next'
-import localFont from 'next/font/local'
 import '@/components/arc/foundation.css'
+import '@fontsource/instrument-serif/400.css'
+import '@fontsource/instrument-serif/400-italic.css'
+import '@fontsource-variable/space-grotesk'
+import '@fontsource/ibm-plex-mono/400.css'
 import './globals.css'
 import { SiteNav } from './components/site-header'
 import { SiteBottom } from './components/site-footer'
 import { Providers } from './providers'
 import Script from 'next/script'
-
-// Fonts are bundled in app/fonts, so the build never needs to reach Google Fonts.
-const geist = localFont({
-  src: './fonts/Geist-Variable.woff2',
-  variable: '--font-geist',
-  weight: '100 900',
-  display: 'swap',
-})
-
-const inter = localFont({
-  src: './fonts/Inter-Variable.woff2',
-  variable: '--font-inter',
-  weight: '100 900',
-  display: 'swap',
-})
 
 export const metadata: Metadata = {
   title: {
@@ -53,7 +41,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" data-theme="light" data-accent="violet" className={`${geist.variable} ${inter.variable}`}>
+    <html lang="en" data-theme="dark" data-accent="signal">
       <body>
         <Providers>
           <a className="skip-link" href="#main">Skip to content</a>

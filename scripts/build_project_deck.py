@@ -14,16 +14,16 @@ OUT = ROOT / "public" / "decks"
 OUT.mkdir(parents=True, exist_ok=True)
 
 W, H = 13.333, 7.5
-INK = "1D1E2A"
-PAPER = "F5F3ED"
-WHITE = "FFFEFA"
-VIOLET = "5A48EF"
-LIME = "C9EF68"
-MUTED = "696A72"
-RULE = "D9D7CF"
-FOREST = "2E443C"
+INK = "101114"
+PAPER = "F1EEE7"
+WHITE = "F8F6F0"
+VIOLET = "FF765D"
+LIME = "78E5D0"
+MUTED = "85858B"
+RULE = "37383F"
+FOREST = "20382E"
 SAND = "E8DFC9"
-PALE = "E6E3F8"
+PALE = "23272C"
 
 prs = Presentation()
 prs.slide_width = Inches(W)
@@ -85,6 +85,7 @@ def link_text(slide, value, url, x, y, w, h, size=8.5):
     run = box.text_frame.paragraphs[0].runs[0]
     run.hyperlink.address = url
     run.font.underline = True
+    run.font.color.rgb = rgb(VIOLET)
     return box
 
 
@@ -99,14 +100,14 @@ def footer(slide, number, label="Iyinoluwa Don-Taiwo", dark=False):
     line(slide, .62, 7.05, 12.72, 7.05, "474852" if dark else RULE, .65)
     color = "B9BAC1" if dark else MUTED
     text(slide, label, .64, 7.12, 6, .18, 8.5, color)
-    text(slide, f"{number} / 8", 11.85, 7.12, .85, .18, 8.5, color, align=PP_ALIGN.RIGHT)
+    text(slide, f"{number} / 10", 11.85, 7.12, .85, .18, 8.5, color, align=PP_ALIGN.RIGHT)
 
 
 def heading(slide, number, category, title, dark=False):
     main = PAPER if dark else INK
     muted = "B9BAC1" if dark else MUTED
     text(slide, f"{number:02d}   {category.upper()}", .66, .47, 6.8, .23, 9, LIME if dark else VIOLET, bold=True)
-    text(slide, title, .66, .95, 11.9, 1.18, 29, main, font="Aptos Display", bold=True)
+    text(slide, title, .66, .95, 11.9, 1.18, 29, main, font="Georgia", bold=True)
     line(slide, .66, 2.35, 12.68, 2.35, "474852" if dark else RULE, .8)
     return main, muted
 
@@ -123,7 +124,7 @@ rect(s, 10.97, 3.65, .12, 1.1, VIOLET)
 rect(s, 11.2, 3.11, .12, 1.64, LIME)
 rect(s, 11.43, 3.94, .12, .81, "EEEADF")
 text(s, "SELECTED WORK", .68, .65, 4, .25, 10, LIME, bold=True)
-text(s, "Iyinoluwa\nDon-Taiwo", .68, 1.6, 7.7, 2.35, 36, PAPER, font="Aptos Display", bold=True)
+text(s, "Iyinoluwa\nDon-Taiwo", .68, 1.6, 7.7, 2.35, 36, PAPER, font="Georgia", bold=True)
 text(s, "Machine learning engineer\nand data scientist", .72, 4.3, 6.8, .75, 19, "D5D5DA")
 line(s, .72, 5.48, 6.85, 5.48, "50515C", 1)
 text(s, "Projects with their data, results and limits.", .72, 5.75, 6.8, .42, 14, "D5D5DA")
@@ -270,11 +271,48 @@ text(s, "PHP checks and auth tests pass. Live MySQL integration has not been run
 footer(s, 7)
 
 
+# Bank churn analysis
+s = base(INK)
+heading(s, 8, "Data analysis", "Checking churn comparisons in an Excel workbook", True)
+text(s, "The workbook summarizes 500 customer records with PivotTables and statistical tests. I preserved the input sheet and added a verifier that checks row counts, identifiers, missing values and the reported calculations.", .68, 2.72, 5.55, 1.5, 14, PAPER)
+text(s, "F = 0.9898", .68, 4.55, 3.8, .52, 24, LIME, font="Aptos Display", bold=True)
+text(s, "Credit-score ANOVA   /   p = 0.3724", .72, 5.13, 4.7, .28, 10, "D5D5DA")
+text(s, "Salary t-test   /   p = 0.42", .72, 5.55, 4.3, .28, 10, "D5D5DA")
+link_text(s, "Repository: github.com/IyinoluwaDon/bank_churn_analysis", "https://github.com/IyinoluwaDon/bank_churn_analysis", .72, 6.03, 5.8, .22, 8)
+rect(s, 7.05, 2.78, 5.55, 3.45, "282936")
+text(s, "REPORTED CHURN-RATE RANGE", 7.4, 3.3, 4.75, .24, 9, "D5D5DA", bold=True)
+text(s, "52.5–55.2%", 7.4, 4.0, 4.7, .7, 31, LIME, font="Aptos Display", bold=True)
+rect(s, 7.4, 5.0, 4.65, .3, "454650")
+rect(s, 7.4, 5.0, 4.0, .3, LIME)
+text(s, "Sample source and license are undocumented. Descriptive results do not establish causes or general bank-wide churn rates.", .68, 6.57, 11.55, .24, 8.8, "B9BAC1")
+footer(s, 8, dark=True)
+
+
+# HR data analysis
+s = base(PAPER)
+heading(s, 9, "Data analysis", "Twelve read-only queries over an HR database")
+text(s, "A small SQLite analysis validates database integrity, calculates tenure relative to review dates, runs twelve named queries and exports the results as CSV and JSON.", .68, 2.72, 5.5, 1.3, 14, "41424A")
+text(s, "1,000", .68, 4.3, 2.4, .62, 30, VIOLET, font="Aptos Display", bold=True)
+text(s, "employee records", .72, 4.98, 2.5, .25, 10, MUTED)
+text(s, "238", 3.4, 4.3, 1.6, .62, 30, INK, font="Aptos Display", bold=True)
+text(s, "Engineering employees", 3.44, 4.98, 2.5, .25, 10, MUTED)
+link_text(s, "Repository: github.com/IyinoluwaDon/HR-Data-Analysis-with-SQL", "https://github.com/IyinoluwaDon/HR-Data-Analysis-with-SQL", .68, 5.72, 5.8, .22, 8)
+rect(s, 7.05, 2.75, 5.55, 3.48, "1D3033")
+text(s, "READ-ONLY QUERY OUTPUT", 7.42, 3.08, 4.6, .23, 9, "A9F0DC", bold=True)
+for i, (left, right) in enumerate([("INTEGRITY", "PASS"), ("FOREIGN KEYS", "PASS"), ("NAMED QUERIES", "12"), ("EXPORTS", "CSV + JSON")]):
+    y = 3.62 + i * .52
+    text(s, left, 7.42, y, 2.2, .22, 9, "D5D5DA")
+    text(s, right, 10.0, y, 2.1, .22, 9, PAPER, bold=True, align=PP_ALIGN.RIGHT)
+    line(s, 7.42, y + .32, 12.1, y + .32, "43575A", .6)
+text(s, "Database source and field definitions are undocumented. Findings describe only the supplied sample.", .68, 6.57, 11.55, .24, 8.8, MUTED)
+footer(s, 9)
+
+
 # Contact
 s = base(INK)
 text(s, "THANK YOU", .68, .68, 3.2, .25, 10, LIME, bold=True)
-text(s, "Get in touch", .68, 1.55, 7.5, 1.05, 36, PAPER, font="Aptos Display", bold=True)
-text(s, "Iyinoluwa Don-Taiwo", .72, 4.05, 5.6, .45, 20, PAPER, font="Aptos Display", bold=True)
+text(s, "Get in touch", .68, 1.55, 7.5, 1.05, 36, PAPER, font="Georgia", bold=True)
+text(s, "Iyinoluwa Don-Taiwo", .72, 4.05, 5.6, .45, 20, PAPER, font="Georgia", bold=True)
 text(s, "Machine learning engineer and data scientist", .72, 4.58, 5.3, .3, 12, "C6C7CE")
 line(s, .72, 5.3, 6.8, 5.3, "50515C", .8)
 text(s, "iyinoluwadontaiwo@gmail.com", .72, 5.62, 5.4, .3, 13, LIME)
@@ -284,7 +322,7 @@ for i, color in enumerate([VIOLET, LIME, "EDEADF"]):
     rect(s, 9.12 + i * .86, 3.05 + (i % 2) * .45, .54, .54, color, None, MSO_SHAPE.OVAL)
 text(s, "Code, demos and project notes are linked from the portfolio.", 8.95, 4.65, 2.95, .75, 12, PAPER, align=PP_ALIGN.CENTER)
 text(s, "iyinoluwa-don-taiwo.vercel.app", 8.95, 5.62, 2.95, .24, 9, "C6C7CE", align=PP_ALIGN.CENTER)
-footer(s, 8, "Selected work", dark=True)
+footer(s, 10, "Selected work", dark=True)
 
 
 prs.core_properties.title = "Iyinoluwa Don-Taiwo | Selected Work"

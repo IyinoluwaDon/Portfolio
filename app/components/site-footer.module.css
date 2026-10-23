@@ -3,6 +3,10 @@
   border-top: 1px solid var(--border);
 }
 
+.footer { border-color:#35363d; }
+.links a { color:#c4c2bc; }
+.links a:hover,.name:hover { color:#78e5d0; }
+
 .inner {
   display: grid;
   width: min(100% - 3rem, 1200px);

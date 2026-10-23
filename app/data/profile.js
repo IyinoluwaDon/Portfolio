@@ -15,6 +15,16 @@ export const skills = [
 
 export const experience = [
   {
+    period: 'July 2026 - October 2026',
+    role: 'Machine Learning Intern',
+    organisation: 'FlyRank',
+    location: 'Applied machine learning internship',
+    highlights: [
+      'Completed five of five internship assignments, including baseline action scoring on anonymized Google Search data and a data-contract exercise.',
+      'Prepared a capstone project that was under review at the end of the internship.',
+    ],
+  },
+  {
     period: 'May 2026 - Present',
     role: 'Geospatial Data Science Intern',
     organisation: 'Interspatial Technologies (SIWES)',
@@ -25,7 +35,7 @@ export const experience = [
     ],
   },
   {
-    period: 'June 2026 - Present',
+    period: 'June 2026 - October 2026',
     role: 'AI Research Fellow',
     organisation: 'TRI AI Saturdays, Cohort 10',
     location: 'Google DeepMind AI Research Foundations curriculum, in partnership with University College London',

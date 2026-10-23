@@ -95,17 +95,29 @@ export function WorkDeck() {
                 <span>{project.category}</span>
               </div>
               <h3 className={styles.projectTitle}>{project.title}</h3>
+              <div className={styles.researchQuestion}><span>QUESTION</span><p>{project.question}</p></div>
               <p className={styles.description}>{project.description}</p>
+
+              <div className={styles.dataSource}>
+                <span>DATA / SETUP</span>
+                <p>{project.data}</p>
+              </div>
+              <div className={styles.approach}>
+                <span>METHOD</span>
+                <p>{project.method}</p>
+              </div>
 
               <div className={styles.measure}>
                 <strong>{project.metric}</strong>
                 <span>{project.metricLabel}</span>
               </div>
+              <div className={styles.comparisonMetrics} aria-label="Related measurements">
+                {project.comparisons.map((item) => (
+                  <div key={`${item.value}-${item.label}`}><strong>{item.value}</strong><span>{item.label}</span></div>
+                ))}
+              </div>
               <p className={styles.evidence}>{project.evidence}</p>
-              <details className={styles.scope}>
-                <summary>What this result means</summary>
-                <p>{project.note}</p>
-              </details>
+              <div className={styles.scope}><span>BOUNDARY</span><p>{project.note}</p></div>
 
               <div className={styles.stack} aria-label="Tools used">
                 {project.stack.map((tool) => <span key={tool}>{tool}</span>)}
@@ -253,6 +265,26 @@ function ProjectArtwork({ project }: { project: Project }) {
         </div>
         <div className={styles.roleList}><span>Admin</span><span>Manager</span><span>Employee</span></div>
         <div className={styles.artFooter}><span>PHP</span><span>MYSQL</span><span>ROLE-BASED ACCESS</span></div>
+      </>}
+
+      {project.visual === 'churn' && <>
+        <div className={styles.artLabel}>Workbook checks <span>07</span></div>
+        <div className={styles.churnDashboard}>
+          <div className={styles.churnHead}><span>500 CUSTOMER ROWS</span><b>CHECKED</b></div>
+          <div className={styles.churnRange}><span>REPORTED CHURN-RATE RANGE</span><strong>52.5–55.2%</strong><i><b /></i></div>
+          <div className={styles.churnTests}><span><b>p = .42</b> Salary t-test</span><span><b>p = .3724</b> Credit-score ANOVA</span></div>
+        </div>
+        <div className={styles.artFooter}><span>EXCEL</span><span>ANOVA VERIFIED</span><span>DESCRIPTIVE</span></div>
+      </>}
+
+      {project.visual === 'sql' && <>
+        <div className={styles.artLabel}>Read-only data analysis <span>08</span></div>
+        <div className={styles.sqlDashboard}>
+          <div className={styles.sqlTop}><span>HR DATABASE / SQLITE</span><span>INTEGRITY OK</span></div>
+          <div className={styles.sqlQuery}><i>SELECT</i> department, COUNT(*)<br /><i>FROM</i> employees <i>GROUP BY</i> department;</div>
+          <div className={styles.sqlTable}><span>DEPARTMENT</span><span>EMPLOYEES</span><b>Engineering</b><b>238</b><b>Product</b><b>—</b><b>12 QUERY EXPORTS</b><b>CSV + JSON</b></div>
+        </div>
+        <div className={styles.artFooter}><span>1,000 ROWS</span><span>12 QUERIES</span><span>READ ONLY</span></div>
       </>}
     </div>
   )
