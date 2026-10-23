@@ -85,10 +85,9 @@ export const projects = [
     metricLabel: 'evaluation design',
     comparisons: [{ value: 'NDWI', label: 'green / NIR' }, { value: 'MNDWI', label: 'green / SWIR' }],
     evidence: 'The repository includes threshold baselines, documented map classes and an optional Google Earth Engine export path.',
-    note: 'Offline checks and the demo use generated data. They verify pipeline behavior, not real-world map accuracy; independent imagery checks are still needed.',
+    note: 'The hosted URL currently redirects to Streamlit access. Generated-data checks verify pipeline behavior only; real-world map accuracy still needs independent imagery checks.',
     stack: ['Python', 'Sentinel-2', 'scikit-learn', 'Google Earth Engine'],
     github: 'https://github.com/IyinoluwaDon/Water-body-detection--Sentinel-2',
-    demo: 'https://water-body-detection.streamlit.app/',
   },
   {
     number: '06',
