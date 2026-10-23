@@ -113,7 +113,7 @@ def heading(slide, number, category, title, dark=False):
 
 # Cover
 s = base(INK)
-rect(s, 8.85, 0, 4.5, 7.5, "252634")
+rect(s, 8.85, 0, 4.48, 7.5, "252634")
 for diameter, color, stroke in [(4.1, "414152", 1), (3.0, "626078", 1), (1.9, LIME, 1.5)]:
     shape = s.shapes.add_shape(MSO_SHAPE.OVAL, Inches(11.05 - diameter / 2), Inches(3.85 - diameter / 2), Inches(diameter), Inches(diameter))
     shape.fill.background()

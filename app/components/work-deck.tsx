@@ -91,7 +91,7 @@ export function WorkDeck() {
           >
             <div className={styles.slideCopy}>
               <div className={styles.slideMeta}>
-                <span>{project.number} / {String(projects.length).padStart(2, '0')}</span>
+                <span>{String(active + 1).padStart(2, '0')} / {String(visibleProjects.length).padStart(2, '0')}</span>
                 <span>{project.category}</span>
               </div>
               <h3 className={styles.projectTitle}>{project.title}</h3>

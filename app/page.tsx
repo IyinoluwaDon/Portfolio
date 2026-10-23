@@ -15,7 +15,7 @@ export default function Home() {
           <p className={styles.role}>Machine learning engineer &amp; data scientist</p>
           <h1 id="intro-title" className={styles.title}>Iyinoluwa<br />Don-Taiwo<span>.</span></h1>
           <p className={styles.lede}>
-            I take machine learning projects from data preparation through evaluation and into tools people can try. Each project shows what its results measure and where they stop.
+            I take machine learning projects from data preparation through evaluation and into tools people can try. I show what each result means and what it cannot tell you.
           </p>
           <div className={styles.heroActions}>
             <LinkButton href="#selected-work">Explore my work</LinkButton>
@@ -24,7 +24,7 @@ export default function Home() {
             </a>
           </div>
           <div className={styles.heroFoot}>
-            <span>Selected work, with the evidence and the limits.</span>
+            <span>Six projects, with the evidence and the limits.</span>
             <span>01 — 06</span>
           </div>
         </div>
@@ -48,9 +48,9 @@ export default function Home() {
           <div className={styles.sectionHead}>
             <div>
               <p className={styles.sectionLabel}>Selected work</p>
-              <h2 id="work-title" className={styles.sectionTitle}>A closer look.</h2>
+              <h2 id="work-title" className={styles.sectionTitle}>Six projects, explained</h2>
             </div>
-            <p className={styles.sectionIntro}>Browse by category. Each project shows what I built, the result I measured and where that result stops.</p>
+            <p className={styles.sectionIntro}>Browse by category. Open a project to see the code, the result and any caveats.</p>
           </div>
           <WorkDeck />
         </div>
