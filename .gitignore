@@ -5,3 +5,7 @@ npm-debug.log*
 
 .idea/
 tmp/
+
+# Redesign additions
+next-env.d.ts
+*.tsbuildinfo

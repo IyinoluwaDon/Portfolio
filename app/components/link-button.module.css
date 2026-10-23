@@ -1,0 +1,93 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  border: 1px solid transparent;
+  border-radius: var(--radius-control);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: var(--tracking-body);
+  text-decoration: none;
+  white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    transform var(--duration-fast) var(--ease-standard),
+    background-color var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard),
+    opacity var(--duration-fast) var(--ease-standard);
+}
+
+.md {
+  height: var(--control-height-md);
+  padding: 0 var(--space-5);
+}
+
+.sm {
+  height: var(--control-height-sm);
+  padding: 0 var(--space-4);
+}
+
+.button:active {
+  transform: scale(0.97);
+}
+
+.arrow {
+  flex: none;
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+.primary {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.secondary {
+  border-color: var(--border);
+  background: var(--surface);
+  color: var(--foreground);
+}
+
+/* For use on a panel filled with --foreground. */
+.inverse {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.inverseOutline {
+  border-color: color-mix(in oklab, var(--background) 35%, transparent);
+  background: transparent;
+  color: var(--background);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .primary:hover,
+  .inverse:hover {
+    opacity: 0.9;
+  }
+
+  .secondary:hover {
+    background: var(--surface-muted);
+    border-color: var(--border-strong);
+  }
+
+  .inverseOutline:hover {
+    background: color-mix(in oklab, var(--background) 12%, transparent);
+  }
+
+  .button:hover .arrow {
+    transform: translateX(2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .arrow {
+    transition: none;
+  }
+
+  .button:active {
+    transform: none;
+  }
+}

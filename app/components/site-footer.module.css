@@ -1,0 +1,10 @@
+/* Line the footer content up with the page container (1200px) instead of the full window width. */
+footer.wide {
+  --footer-pad: max(var(--space-6), calc((100% - 1200px) / 2 + var(--space-6)));
+}
+
+@media (max-width: 640px) {
+  footer.wide {
+    --footer-pad: var(--space-4);
+  }
+}
