@@ -12,7 +12,10 @@ export function SiteNav() {
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
-        <Link className={styles.brand} href="/">Iyinoluwa Don-Taiwo</Link>
+        <Link className={styles.brand} href="/" aria-label="Iyinoluwa Don-Taiwo home">
+          <span className={styles.mark} aria-hidden="true">ID</span>
+          <span>Iyinoluwa Don-Taiwo</span>
+        </Link>
         <nav className={styles.nav} aria-label="Main navigation">
           {navItems.map((item) => (
             <Link

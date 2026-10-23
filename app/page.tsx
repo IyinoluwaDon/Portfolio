@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowDown, ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import { LinkButton } from './components/link-button'
 import { WorkDeck } from './components/work-deck'
 import { links } from './data/links'
@@ -18,7 +18,7 @@ export default function Home() {
             I build machine learning systems, test what holds up, and turn the useful parts into tools people can try.
           </p>
           <div className={styles.heroActions}>
-            <LinkButton href="#selected-work">Explore my work <ArrowDown size={15} aria-hidden="true" /></LinkButton>
+            <LinkButton href="#selected-work">Explore my work</LinkButton>
             <a className={styles.resumeLink} href={links.resume} target="_blank" rel="noopener noreferrer">
               Resume <ArrowUpRight size={15} aria-hidden="true" />
             </a>
@@ -39,7 +39,6 @@ export default function Home() {
             priority
             className={styles.portrait}
           />
-          <p className={styles.portraitCaption}><span>Machine learning</span><span>Data science</span></p>
         </div>
         <a className={styles.scrollCue} href="#selected-work" aria-label="Scroll to selected work"><span />Scroll to work</a>
       </section>

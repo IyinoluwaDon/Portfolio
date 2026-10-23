@@ -1,24 +1,44 @@
 .header {
-  border-bottom: 1px solid var(--border);
-  background: var(--background);
+  position: sticky;
+  z-index: 20;
+  top: 0;
+  border-bottom: 1px solid rgb(28 29 37 / 10%);
+  background: rgb(245 243 237 / 92%);
+  backdrop-filter: blur(14px);
 }
 
 .inner {
   display: flex;
   width: min(100% - 3rem, 1200px);
-  min-height: 76px;
+  min-height: 74px;
   align-items: center;
-  gap: clamp(1rem, 3vw, 2.5rem);
+  gap: clamp(1rem, 3vw, 2.6rem);
   margin-inline: auto;
 }
 
 .brand {
+  display: inline-flex;
   flex: 0 0 auto;
-  color: var(--foreground);
-  font-size: .95rem;
+  align-items: center;
+  gap: .7rem;
+  color: #20202a;
+  font-size: .86rem;
   font-weight: 600;
   letter-spacing: -.025em;
   text-decoration: none;
+}
+
+.mark {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  background: #5a48ef;
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: .65rem;
+  font-weight: 650;
+  letter-spacing: -.04em;
 }
 
 .nav {
@@ -26,98 +46,106 @@
   flex: 1;
   align-items: center;
   justify-content: center;
-  gap: clamp(.8rem, 2.4vw, 2rem);
+  gap: clamp(.9rem, 2.3vw, 2rem);
 }
 
 .navLink,
 .resume {
-  color: var(--text-secondary);
-  font-size: .875rem;
+  color: #5d5c65;
+  font-size: .8rem;
   text-decoration: none;
+  transition: color .18s ease;
 }
 
 .navLink {
-  padding-block: .75rem;
-  border-bottom: 2px solid transparent;
+  position: relative;
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+}
+
+.navLink::after {
+  position: absolute;
+  right: 0;
+  bottom: .35rem;
+  left: 0;
+  height: 2px;
+  background: #5a48ef;
+  content: '';
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .22s cubic-bezier(.22, 1, .36, 1);
 }
 
 .navLink:hover,
-.navLink[aria-current='page'] {
-  border-bottom-color: var(--accent);
-  color: var(--foreground);
-}
+.navLink[aria-current='page'],
+.resume:hover { color: #1b1b24; }
+
+.navLink:hover::after,
+.navLink[aria-current='page']::after { transform: scaleX(1); }
 
 .actions {
   display: flex;
   flex: 0 0 auto;
   align-items: center;
-  gap: 1rem;
+  gap: 1.15rem;
 }
 
-.resume:hover {
-  color: var(--foreground);
-}
+.resume { color: #3c3b44; }
 
 .contact {
   display: inline-flex;
   min-height: 40px;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--foreground);
-  border-radius: 4px;
+  border: 1px solid #24242c;
   padding: 0 1rem;
-  color: var(--foreground);
-  font-size: .875rem;
-  font-weight: 500;
+  background: #24242c;
+  color: #f5f3ed;
+  font-size: .78rem;
+  font-weight: 540;
   text-decoration: none;
+  transition: background-color .18s ease, color .18s ease;
 }
 
-.contact:hover {
-  background: var(--foreground);
-  color: var(--background);
-}
+.contact:hover { background: transparent; color: #24242c; }
 
 @media (max-width: 760px) {
   .inner {
     width: min(100% - 2rem, 1200px);
     min-height: 68px;
     flex-wrap: wrap;
-    gap: .75rem 1rem;
-    padding-block: .8rem;
+    gap: .25rem 1rem;
+    padding-block: .55rem;
   }
 
-  .brand {
-    margin-right: auto;
-  }
-
+  .brand { margin-right: auto; }
   .nav {
     order: 3;
     flex: 1 0 100%;
     justify-content: flex-start;
-    gap: clamp(1rem, 5vw, 2rem);
-    border-top: 1px solid var(--border-subtle);
+    gap: clamp(1.1rem, 6vw, 2rem);
+    border-top: 1px solid rgb(28 29 37 / 9%);
   }
 
-  .navLink {
-    padding-block: .65rem .3rem;
-  }
+  .navLink { min-height: 2.3rem; }
+  .navLink::after { bottom: .15rem; }
 }
 
 @media (max-width: 390px) {
-  .inner {
-    width: min(100% - 1.25rem, 1200px);
-  }
+  .inner { width: min(100% - 1.25rem, 1200px); }
+  .brand { font-size: .78rem; }
+  .mark { width: 1.75rem; height: 1.75rem; }
+  .actions { gap: .65rem; }
+  .resume { font-size: .75rem; }
+  .contact { min-height: 36px; padding-inline: .75rem; }
+  .nav { justify-content: space-between; gap: .4rem; }
+  .navLink { font-size: .75rem; }
+}
 
-  .brand {
-    font-size: .86rem;
-  }
-
-  .actions {
-    gap: .7rem;
-  }
-
-  .nav {
-    justify-content: space-between;
-    gap: .5rem;
-  }
+@media (prefers-reduced-motion: reduce) {
+  .navLink,
+  .navLink::after,
+  .resume,
+  .contact { transition: none; }
 }

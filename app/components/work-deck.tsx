@@ -44,7 +44,7 @@ export function WorkDeck() {
   return (
     <div className={styles.deck}>
       <div className={styles.deckHead}>
-        <div className={styles.categoryList} role="tablist" aria-label="Filter projects by category">
+        <div className={styles.categoryList} role="group" aria-label="Filter projects by category">
           {allCategories.map((item) => {
             const count = item === 'All work' ? projects.length : projects.filter((entry) => entry.category === item).length
             return (
@@ -52,8 +52,7 @@ export function WorkDeck() {
                 className={styles.category}
                 key={item}
                 type="button"
-                role="tab"
-                aria-selected={category === item}
+                aria-pressed={category === item}
                 onClick={() => selectCategory(item)}
               >
                 {item}<span>{String(count).padStart(2, '0')}</span>
