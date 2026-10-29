@@ -1,8 +1,12 @@
 # Iyinoluwa Don-Taiwo Portfolio
 
-A Next.js portfolio for machine-learning, data-science, geospatial, and application projects. The site presents a six-project animated work deck, project context and evaluation details, and a downloadable selected-work presentation.
+A Next.js portfolio for machine-learning, data-science, geospatial, and application projects. The site presents an eight-project animated work deck, project context and evaluation details, and a downloadable selected-work presentation.
 
-`app/data/projects.js` contains project descriptions and links; `profile.js` and `links.js` contain profile and contact content. `app/components/work-deck.tsx` and its styles implement the project deck. `public/decks/` contains the PDF and editable PowerPoint; `scripts/build_project_deck.py` rebuilds the PowerPoint from its source data.
+`app/data/projects.js` contains project descriptions and links; `app/data/profile.js` and
+`app/data/links.js` contain profile and contact content. `app/components/work-deck.tsx`
+and its styles implement the project deck. `public/decks/` contains the PDF and
+editable PowerPoint; `scripts/build_project_deck.py` rebuilds the PowerPoint from
+its source data.
 
 ## Run locally
 
